@@ -3,99 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajuda a Próxima - Doação Pix</title>
+    <title>Ajuda Próxima + | Transformando Vidas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
-            background: #fff;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-        }
-        h1 { color: #333; }
-        p { color: #666; margin-bottom: 1.5rem; }
-        input {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            box-sizing: border-box;
-        }
-        button {
-            background-color: #32bcad;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-            width: 100%;
-        }
-        button:hover { background-color: #28a396; }
-        .footer { margin-top: 1.5rem; font-size: 0.8rem; color: #999; }
+        .gradient-bg { background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%); }
+        .hero-img { border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
     </style>
 </head>
-<body>
+<body class="bg-gray-50 font-sans">
 
-    <div class="container">
-        <h1>Ajuda a Próxima</h1>
-        <p>Contribua com nosso projeto social via Pix. Sua ajuda faz a diferença!</p>
-        
-        <input type="text" id="nome" placeholder="Seu Nome (Opcional)">
-        <input type="number" id="valor" placeholder="Valor da Doação (R$)">
-        
-        <button onclick="gerarPix()">Gerar Pagamento Pix</button>
-
-        <div id="resultado" style="margin-top: 20px;"></div>
-
-        <div class="footer">
-            © 2026 Ajuda a Próxima - Todos os direitos reservados.
+    <nav class="bg-white shadow-md p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-blue-700"><i class="fas fa-hand-holding-heart"></i> Ajuda Próxima +</h1>
+            <span class="text-gray-500 text-sm font-medium">Projeto Solidário</span>
         </div>
-    </div>
+    </nav>
+
+    <header class="gradient-bg text-white py-12 px-4">
+        <div class="container mx-auto flex flex-col md:flex-row items-center gap-8">
+            <div class="md:w-1/2">
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Sua ajuda pode mudar o futuro de uma criança.</h2>
+                <p class="text-lg mb-6 opacity-90">Unidos para levar alimento, educação e esperança para quem mais precisa. Faça parte dessa corrente do bem.</p>
+            </div>
+            <div class="md:w-1/2">
+                <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Crianças sorrindo" class="hero-img">
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto -mt-10 px-4 pb-12">
+        <div class="bg-white rounded-3xl shadow-2xl p-8 max-w-2xl mx-auto">
+            <h3 class="text-2xl font-bold text-center text-gray-800 mb-6">Quanto você deseja doar?</h3>
+            
+            <div class="grid grid-cols-3 gap-4 mb-6">
+                <button onclick="definirValor(10)" class="border-2 border-blue-600 text-blue-600 py-3 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition">R$ 10</button>
+                <button onclick="definirValor(20)" class="border-2 border-blue-600 text-blue-600 py-3 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition">R$ 20</button>
+                <button onclick="definirValor(50)" class="border-2 border-blue-600 text-blue-600 py-3 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition">R$ 50</button>
+            </div>
+
+            <div class="space-y-4">
+                <input type="number" id="valor" placeholder="Outro Valor (R$)" class="w-full border-2 border-gray-200 p-4 rounded-xl focus:border-blue-500 outline-none">
+                <input type="text" id="nome" placeholder="Seu Nome Completo" class="w-full border-2 border-gray-200 p-4 rounded-xl focus:border-blue-500 outline-none">
+                <button onclick="gerarPix()" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-xl text-xl shadow-lg transition transform hover:scale-105">
+                    GERAR PIX AGORA <i class="fas fa-qrcode ml-2"></i>
+                </button>
+            </div>
+
+            <div id="area-pix" class="hidden mt-8 p-6 bg-gray-100 rounded-2xl text-center">
+                <p class="font-bold text-gray-700 mb-4 text-lg">Aponte a câmera para o QR Code abaixo:</p>
+                <div id="qrcode-container" class="bg-white p-4 inline-block rounded-xl shadow-inner mb-4">
+                     <img id="img-qrcode" src="" alt="QR Code Pix" class="mx-auto max-w-[250px]">
+                </div>
+                <p class="text-sm text-gray-500 mb-2">Ou copie o código abaixo:</p>
+                <input type="text" id="pix-copia" readonly class="w-full text-center p-2 bg-white border rounded mb-4 text-xs font-mono">
+                <button onclick="copiarPix()" class="bg-blue-100 text-blue-700 px-4 py-2 rounded-lg font-bold hover:bg-blue-200">
+                    <i class="far fa-copy mr-2"></i> Copiar Código Pix
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center text-gray-400 py-8 text-sm">
+        <p>&copy; 2026 Ajuda Próxima + | Todos os direitos reservados.</p>
+    </footer>
 
     <script>
+        function definirValor(v) {
+            document.getElementById('valor').value = v;
+        }
+
         async function gerarPix() {
-            const nome = document.getElementById('nome').value;
             const valor = document.getElementById('valor').value;
-            const resultadoDiv = document.getElementById('resultado');
+            const nome = document.getElementById('nome').value;
 
-            if (!valor || valor <= 0) {
-                alert("Por favor, insira um valor válido.");
-                return;
-            }
+            if(!valor || !nome) return alert("Por favor, preencha o nome e o valor.");
 
-            resultadoDiv.innerHTML = "Processando...";
+            const btn = event.target;
+            btn.innerText = "GERANDO...";
 
             try {
-                // Aqui o site se conecta com o seu backend no Render
                 const response = await fetch('/gerar-pix', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ nome, valor })
+                    body: JSON.stringify({ valor, nome })
                 });
 
                 const data = await response.json();
-                if (data.qrCode) {
-                    resultadoDiv.innerHTML = `<p>Escaneie o código abaixo:</p><img src="${data.qrCode}" width="200">`;
-                } else {
-                    resultadoDiv.innerHTML = "Erro ao gerar Pix. Tente novamente.";
+
+                if(data.success) {
+                    document.getElementById('area-pix').classList.remove('hidden');
+                    // Usando API gratuita do Google para transformar o código Pix em imagem QR Code
+                    document.getElementById('img-qrcode').src = `https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=${encodeURIComponent(data.qrCode)}`;
+                    document.getElementById('pix-copia').value = data.qrCode;
+                    btn.innerText = "PIX GERADO COM SUCESSO!";
+                    btn.classList.replace('bg-green-500', 'bg-gray-400');
                 }
-            } catch (error) {
-                resultadoDiv.innerHTML = "Erro de conexão com o servidor.";
-                console.error(error);
+            } catch (err) {
+                alert("Erro ao conectar com o servidor.");
+                btn.innerText = "TENTAR NOVAMENTE";
             }
+        }
+
+        function copiarPix() {
+            const copyText = document.getElementById("pix-copia");
+            copyText.select();
+            document.execCommand("copy");
+            alert("Código Pix copiado!");
         }
     </script>
 </body>
