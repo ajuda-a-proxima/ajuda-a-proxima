@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  
+</body>
+
+</html><!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ajuda a Próxima</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="card">
+      <div class="badge">Doação segura</div>
+      <h1>Cada Pix ajuda a mudar uma história.</h1>
+      <p class="subtitle">Contribua em segundos, acompanhe em tempo real e faça parte de uma rede de apoio que cresce com a ajuda da comunidade.</p>
+
+      <div class="qrcode-wrap">
+        <img id="qrcodeImg" src="" alt="QR Code Pix" />
+        <div id="qrcodePlaceholder" class="placeholder">Carregando QR Code...</div>
+      </div>
+
+      <div class="timer-block">
+        <span class="timer-label">Tempo restante</span>
+        <div id="timer" class="timer">30:00</div>
+        <div class="progress">
+          <div id="progressBar" class="progress-bar"></div>
+        </div>
+      </div>
+
+      <button id="copyBtn" class="btn btn-primary">Apoiar agora via Pix</button>
+
+      <textarea id="pixCode" class="pix-code" readonly placeholder="O código Pix aparecerá aqui."></textarea>
+
+      <div id="statusBox" class="status">Aguardando confirmação do pagamento...</div>
+
+      <p class="small">Muitas pessoas já entendem o valor de apoiar iniciativas que fazem diferença de verdade.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>  
