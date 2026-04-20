@@ -1,49 +1,38 @@
 const express = require('express');
 const path = require('path');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-
+const axios = require('axios');
 const app = express();
-const PORT = process.env.PORT || 3000;
 
-// Configurações básicas
-app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
 
-// --- ESTA PARTE RESOLVE O ERRO "CANNOT GET /" ---
-// Indica que os arquivos estáticos (como o index.html) estão na pasta raiz
-app.use(express.static(path.join(__dirname, '')));
-
-// Rota principal: quando alguém acessa o site, o servidor envia o index.html
+// Rota principal: Carrega o seu site (Resolve o erro "Cannot GET /")
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// --- ROTA PARA GERAR O PIX ---
-// Aqui é onde a mágica acontece quando o usuário clica no botão de doar
+// Rota para Gerar o Pix (Aqui entra a mágica da Mystic/Outros)
 app.post('/gerar-pix', async (req, res) => {
+    const { valor, nome, cpf, email, descricao } = req.body;
+
     try {
-        const { nome, valor } = req.body;
-
-        // Log para você acompanhar no console do Render
-        console.log(`Solicitação de Pix: Nome: ${nome}, Valor: R$ ${valor}`);
-
-        // Placeholder para a lógica do seu provedor de pagamento (Mercado Pago, Efí, etc)
-        // Por enquanto, vamos retornar um link de teste para validar a conexão
-        res.status(200).json({
+        // Simulação de resposta da API de pagamento
+        // Depois vamos substituir pela URL real da Mystic com seu Token
+        console.log(`Gerando Pix para ${nome} no valor de R$ ${valor}`);
+        
+        // Exemplo de resposta de teste (Isso vai gerar o QR Code na tela)
+        res.json({
             success: true,
-            message: "Servidor conectado!",
-            qrCode: "https://via.placeholder.com/200?text=QR+CODE+PIX" 
+            qrCode: "00020101021226870014br.gov.bcb.pix0125suachavepixaqui5204000053039865404" + valor + "5802BR5913AjudaProxima6009SAO PAULO62070503***6304",
+            pixCopiaECola: "Link do Pix Copia e Cola aparecerá aqui"
         });
-
     } catch (error) {
-        console.error("Erro no processamento:", error);
-        res.status(500).json({ error: "Erro interno no servidor." });
+        console.error("Erro ao gerar Pix:", error);
+        res.status(500).json({ success: false, message: "Erro ao processar pagamento." });
     }
 });
 
-// Inicia o servidor
+const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);
-    console.log(`Projeto: Ajuda a Próxima`);
 });
