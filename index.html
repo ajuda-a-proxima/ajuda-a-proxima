@@ -1,144 +1,177 @@
-<section id="paineis-social">
-    <div class="ticker-container">
-        <div class="ticker-title">CONTRIBUIÇÕES AGORA:</div>
-        <div class="ticker-wrapper">
-            <div class="ticker-content">
-                <span class="donation-item">🟢 <b>Marcos S.</b> doou R$ 5,00 - <i>"Juntos somos mais!"</i></span>
-                <span class="donation-item">🟢 <b>Ana Paula</b> doou R$ 2,00 - <i>"De grão em grão..."</i></span>
-                <span class="donation-item">🟢 <b>Ricardo Oliveira</b> doou R$ 10,00 - <i>"Excelente iniciativa!"</i></span>
-                <span class="donation-item">🟢 <b>Felipe Meira</b> doou R$ 3,00 - <i>"Apoio total!"</i></span>
-                <span class="donation-item">🟢 <b>Beatriz Luz</b> doou R$ 7,50 - <i>"Deus abençoe."</i></span>
-                <span class="donation-item">🟢 <b>Davi Souza</b> doou R$ 2,00 - <i>"Contribuição feita!"</i></span>
-                <span class="donation-item">🟢 <b>Marcos S.</b> doou R$ 5,00</span>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ajuda a Próxima</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: sans-serif;
+            background-color: #000;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Ticker - Nomes deslizando no topo */
+        .ticker-wrap {
+            width: 100%;
+            overflow: hidden;
+            background-color: #1e293b;
+            padding: 10px 0;
+            border-bottom: 2px solid #22c55e;
+        }
+
+        .ticker-move {
+            display: inline-block;
+            white-space: nowrap;
+            padding-right: 100%;
+            animation: ticker-anim 25s linear infinite;
+            color: #38bdf8;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        @keyframes ticker-anim {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
+
+        /* Banner Hero - Preenchimento da Tela */
+        .hero {
+            position: relative;
+            height: 45vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Container de Doação */
+        .content-area {
+            background-color: #fff;
+            color: #333;
+            min-height: 55vh;
+            border-radius: 40px 40px 0 0;
+            margin-top: -30px;
+            position: relative;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .btn-pix {
+            background-color: #22c55e;
+            color: white;
+            padding: 18px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 320px;
+            font-size: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            box-shadow: 0 10px 20px rgba(34, 197, 94, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .price-tag {
+            font-size: 56px;
+            font-weight: 900;
+            color: #16a34a;
+            margin: 10px 0;
+        }
+
+        /* Depoimentos */
+        .testimonials {
+            display: flex;
+            overflow-x: auto;
+            gap: 15px;
+            width: 100%;
+            padding: 20px 0;
+        }
+
+        .card {
+            min-width: 260px;
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 15px;
+            border-left: 5px solid #22c55e;
+            font-style: italic;
+            font-size: 13px;
+        }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="ticker-wrap">
+        <div class="ticker-move">
+            🔥 @ryanbrother acabou de ajudar! • Carlos enviou R$ 1,00 • Lucas contribuiu com sucesso • Vanessa participou da corrente • Doe você também! 🔥
+        </div>
+    </div>
+
+    <div class="hero animate__animated animate__fadeIn">
+        <h1 class="text-4xl font-black uppercase tracking-tighter mb-2">Ajuda a Próxima</h1>
+        <p class="text-gray-300 text-sm mb-4">Unidos fazemos a diferença real na vida de alguém.</p>
+        <div class="bg-yellow-400 text-black px-5 py-2 rounded-full font-bold animate__animated animate__pulse animate__infinite">
+            VALOR MÍNIMO R$ 1,00
+        </div>
+    </div>
+
+    <div class="content-area">
+        <div class="w-12 h-1.5 bg-gray-300 rounded-full mb-6"></div>
+        
+        <h2 class="text-xl font-bold mb-2">Seja um doador hoje</h2>
+        <p class="text-gray-500 text-center text-sm mb-4">Sua contribuição de apenas um real gera um impacto enorme.</p>
+
+        <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Contribua com</span>
+        <div class="price-tag animate__animated animate__bounceIn">R$ 1,00</div>
+
+        <button class="btn-pix mt-4 mb-6" onclick="location.reload()">
+            Ajudar Agora via PIX
+        </button>
+
+        <div class="flex items-center gap-2 text-gray-400 text-xs mb-8">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+            Pagamento Seguro e Direto
+        </div>
+
+        <div class="w-full">
+            <p class="font-bold text-gray-400 text-xs uppercase mb-3">Depoimentos Recentes</p>
+            <div class="testimonials no-scrollbar">
+                <div class="card">
+                    "Fiz minha parte com R$ 1,00. É muito gratificante!"
+                    <br><strong class="text-green-600 not-italic">- João Silva</strong>
+                </div>
+                <div class="card">
+                    "Parabéns pelo projeto @ryanbrother, nota 10!"
+                    <br><strong class="text-green-600 not-italic">- Maria Eduarda</strong>
+                </div>
+                <div class="card">
+                    "O PIX caiu na hora. Muito prático e seguro."
+                    <br><strong class="text-green-600 not-italic">- Ricardo Mendes</strong>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="main-panel">
-        <div class="rating-badge">
-            <div class="stars">★★★★★</div>
-            <p>App Nota 5.0 - Líder em Transparência</p>
-            <small>+ de 1.200 avaliações positivas</small>
-        </div>
-
-        <div class="testimonials-grid">
-            <div class="card">
-                <p>"Muito fácil de ajudar, o processo do Pix é instantâneo. Parabéns pela tecnologia!"</p>
-                <strong>- João Victor (Doador Ouro)</strong>
-            </div>
-            <div class="card">
-                <p>"O sistema passa muita confiança. Ver que tanta gente está ajudando me motivou."</p>
-                <strong>- Maria Clara (Doadora Ativa)</strong>
-            </div>
-        </div>
-
-        <div class="cta-message">
-            <h3>DOE QUALQUER VALOR - O MÍNIMO É R$ 1,00</h3>
-            <p>Sua pequena ajuda é o que move grandes mudanças hoje.</p>
-        </div>
-    </div>
-</section>
-
-<style>
-    /* Estilos Modernos e Tecnológicos */
-    #paineis-social {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background: #0f172a;
-        color: white;
-        padding: 20px;
-        border-radius: 15px;
-        max-width: 900px;
-        margin: 20px auto;
-        box-shadow: 0 0 30px rgba(0, 100, 255, 0.2);
-    }
-
-    /* Ticker (Barra Deslizante) */
-    .ticker-container {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 10px;
-        display: flex;
-        overflow: hidden;
-        margin-bottom: 20px;
-    }
-
-    .ticker-title {
-        background: #3b82f6;
-        padding: 10px 15px;
-        font-weight: bold;
-        font-size: 12px;
-        white-space: nowrap;
-        z-index: 2;
-    }
-
-    .ticker-wrapper {
-        overflow: hidden;
-        white-space: nowrap;
-        display: flex;
-        align-items: center;
-    }
-
-    .ticker-content {
-        display: inline-block;
-        padding-left: 100%;
-        animation: ticker 30s linear infinite;
-    }
-
-    .donation-item {
-        display: inline-block;
-        margin-right: 50px;
-        font-size: 14px;
-        color: #94a3b8;
-    }
-
-    .donation-item b { color: #4ade80; }
-
-    @keyframes ticker {
-        0% { transform: translate3d(0, 0, 0); }
-        100% { transform: translate3d(-100%, 0, 0); }
-    }
-
-    /* Painel Principal */
-    .main-panel {
-        text-align: center;
-    }
-
-    .rating-badge {
-        background: linear-gradient(135deg, #1e293b, #0f172a);
-        padding: 15px;
-        border-radius: 12px;
-        border: 1px solid #3b82f6;
-        margin-bottom: 20px;
-    }
-
-    .stars { color: #facc15; font-size: 24px; margin-bottom: 5px; }
-
-    .testimonials-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 15px;
-        margin-bottom: 20px;
-    }
-
-    .card {
-        background: rgba(255, 255, 255, 0.03);
-        padding: 15px;
-        border-radius: 10px;
-        font-size: 13px;
-        line-height: 1.5;
-        border-left: 4px solid #3b82f6;
-    }
-
-    .card strong { display: block; margin-top: 10px; color: #3b82f6; }
-
-    .cta-message h3 {
-        color: #4ade80;
-        letter-spacing: 1px;
-        margin-bottom: 5px;
-    }
-
-    /* Responsivo para Celular */
-    @media (max-width: 600px) {
-        .testimonials-grid { grid-template-columns: 1fr; }
-    }
-</style>
+</body>
+</html>
