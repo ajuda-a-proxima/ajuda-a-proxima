@@ -3,68 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajuda o Próximo</title>
+    <title>Ajuda o Próximo - AO VIVO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        :root {
+            --primary-color: #28a745;
+            --dark-color: #1a1a1a;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f0f0f;
+            color: white;
+            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
-            background-color: #f4f4f9;
+            overflow: hidden;
         }
-        .container {
+
+        /* Container Principal */
+        .main-card {
+            background: #222;
+            padding: 30px;
+            border-radius: 20px;
             text-align: center;
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 0 30px rgba(40, 167, 69, 0.2);
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+            z-index: 2;
         }
-        .btn-pix {
-            background-color: #28a745;
+
+        /* Badge AO VIVO */
+        .live-badge {
+            background: red;
             color: white;
-            padding: 15px 30px;
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .viewers {
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        h1 { font-size: 1.8rem; margin-bottom: 10px; }
+        p { color: #ccc; margin-bottom: 25px; }
+
+        /* Botão de Doação */
+        .btn-donate {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 18px 35px;
             border: none;
-            border-radius: 8px;
-            font-size: 1.2rem;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: bold;
             cursor: pointer;
-            transition: background 0.3s;
             text-decoration: none;
             display: inline-block;
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 100%;
+            box-sizing: border-box;
         }
-        .btn-pix:hover {
-            background-color: #218838;
+
+        .btn-donate:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(40, 167, 69, 0.4);
+        }
+
+        /* Notificações Fake de Doação */
+        #notification-area {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 999;
+        }
+
+        .notif {
+            background: white;
+            color: black;
+            padding: 12px 20px;
+            border-radius: 10px;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            animation: slideIn 0.5s ease-out;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .notif img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 12px;
+            background: #eee;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-120%); }
+            to { transform: translateX(0); }
+        }
+
+        @keyframes fadeOut {
+            to { opacity: 0; transform: translateY(-20px); }
+        }
+
+        /* Lista de Pessoas Online */
+        .online-list {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #666;
+            height: 20px;
+            overflow: hidden;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Ajuda o Próximo</h1>
-    <p>Sua doação faz a diferença!</p>
-    
-    <button class="btn-pix" onclick="fazerDoacao()">
-        DOAR AGORA
-    </button>
-</div>
+    <div id="notification-area"></div>
 
-<audio id="audioAgradecimento">
-    <source src="https://www.soundjay.com/buttons/sounds/button-4.mp3" type="audio/mpeg">
-</audio>
+    <div class="main-card">
+        <div class="live-badge"><i class="fas fa-circle"></i> AO VIVO</div>
+        <h1>Ajuda o Próximo</h1>
+        <div class="viewers">
+            <i class="fas fa-users"></i> <span id="user-count">142</span> pessoas online agora
+        </div>
+        <p>Contribua com o projeto e ajude a mudar vidas.</p>
+        
+        <button class="btn-donate" onclick="doar()">
+            <i class="fas fa-heart"></i> DOAR AGORA
+        </button>
 
-<script>
-    function fazerDoacao() {
-        // Toca o áudio antes de redirecionar
-        var audio = document.getElementById("audioAgradecimento");
-        audio.play();
+        <div class="online-list" id="recent-actions">
+            Marcos Silva entrou na página...
+        </div>
+    </div>
 
-        // Aguarda um segundo para o áudio começar e redireciona para a sua vaquinha
-        setTimeout(function() {
-            window.location.href = "https://www.vakinha.com.br/5567311";
-        }, 800);
-    }
-</script>
+    <audio id="popSound">
+        <source src="https://www.soundjay.com/buttons/sounds/button-10.mp3" type="audio/mpeg">
+    </audio>
 
+    <script>
+        const nomes = ["Ricardo", "Ana Paula", "Lucas", "Jefferson", "Sandra", "Thiago", "Beatriz", "Marcio", "Claudio", "Fernanda", "Gerson", "Viviane", "Rodrigo"];
+        const valores = ["10,00", "25,00", "50,00", "5,00", "100,00", "15,00"];
+        
+        function doar() {
+            window.location.href = "https://www.vakinha.com.br/6074047";
+        }
+
+        // Simula contador de pessoas online mudando
+        setInterval(() => {
+            let count = document.getElementById('user-count');
+            let current = parseInt(count.innerText);
+            count.innerText = current + (Math.random() > 0.5 ? 1 : -1);
+        }, 3000);
+
+        // Função para criar notificação de doação falsa
+        function showNotification() {
+            const area = document.getElementById('notification-area');
+            const nome = nomes[Math.floor(Math.random() * nomes.length)];
+            const valor = valores[Math.floor(Math.random() * valores.length)];
+            
+            const notif = document.createElement('div');
+            notif.className = 'notif';
+            // Imagem de perfil aleatória (Placeholder)
+            const randomImg = "https://i.pravatar.cc/100?u=" + Math.random();
+            
+            notif.innerHTML = `
+                <img src="${randomImg}" alt="user">
+                <div>
+                    <strong>${nome}</strong><br>
+                    <span style="font-size: 0.8rem; color: #28a745;">Doou R$ ${valor} agora</span>
+                </div>
+            `;
+
+            area.appendChild(notif);
+            document.getElementById('popSound').play();
+
+            setTimeout(() => {
+                notif.style.animation = "fadeOut 0.5s forwards";
+                setTimeout(() => notif.remove(), 500);
+            }, 4000);
+        }
+
+        // Inicia as notificações aleatórias
+        setInterval(() => {
+            if(Math.random() > 0.6) showNotification();
+        }, 7000);
+
+        // Lista de ações recentes (nomes passando)
+        setInterval(() => {
+            const list = document.getElementById('recent-actions');
+            const nome = nomes[Math.floor(Math.random() * nomes.length)];
+            list.innerText = `${nome} está visualizando a página...`;
+        }, 4000);
+
+    </script>
 </body>
 </html>
