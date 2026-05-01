@@ -3,207 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radar de Oportunidades - Geimison Silva</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Portal Conexão Próxima - Evolução e Solidariedade</title>
     <style>
         :root {
-            --primary: #00ff88; /* Verde Neon para atrair clique */
-            --bg: #0a0a0a;
-            --card: #161616;
-            --text: #ffffff;
+            --primary-color: #1a73e8;
+            --secondary-color: #34a853;
+            --dark-color: #202124;
+            --light-bg: #f8f9fa;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 450px;
-            padding: 20px;
-            box-sizing: border-box;
+            background-color: var(--light-bg);
+            color: var(--dark-color);
+            line-height: 1.6;
         }
 
         header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 80px 20px;
             text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3.5em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.3em;
+            margin-top: 15px;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: -50px auto 60px;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
             margin-bottom: 30px;
         }
 
-        .logo-placeholder {
-            width: 90px;
-            height: 90px;
-            background: linear-gradient(45deg, #00ff88, #00bd68);
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            color: black;
-            font-weight: bold;
-        }
-
-        h1 { font-size: 20px; margin: 0; letter-spacing: 1px; }
-        .sub { color: #888; font-size: 14px; margin-top: 5px; }
-
-        /* Estilo dos Botões de Venda */
-        .link-card {
-            background: var(--card);
-            border: 1px solid #222;
-            border-radius: 15px;
-            padding: 18px;
-            margin-bottom: 15px;
-            text-decoration: none;
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .link-card:hover {
-            transform: scale(1.03);
-            border-color: var(--primary);
-            background: #1c1c1c;
-        }
-
-        .link-card.vip {
-            border: 1px solid var(--primary);
-            background: linear-gradient(145deg, #161616, #002b17);
-        }
-
-        .link-card i {
-            font-size: 24px;
-            color: var(--primary);
-            width: 30px;
+        h2 {
+            color: var(--primary-color);
             text-align: center;
+            font-size: 2em;
+            margin-bottom: 30px;
         }
 
-        .content { flex: 1; }
-        .title { display: block; font-weight: bold; font-size: 16px; margin-bottom: 3px; }
-        .description { display: block; font-size: 12px; color: #aaa; }
-
-        .badge {
-            position: absolute;
-            top: -10px;
-            right: 10px;
-            background: var(--primary);
-            color: black;
-            font-size: 10px;
-            font-weight: bold;
-            padding: 3px 10px;
-            border-radius: 20px;
-            text-transform: uppercase;
+        /* Grade de Afiliados */
+        .affiliate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
         }
 
-        /* Seção de Doação */
-        .donation-box {
-            margin-top: 40px;
-            background: #111;
-            padding: 20px;
-            border-radius: 20px;
+        .product-card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            padding: 25px;
+            border-radius: 12px;
             text-align: center;
-            border: 1px dashed #333;
+            transition: transform 0.3s ease;
         }
 
-        .btn-pix {
-            background: #32bcad;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: bold;
+        .product-card:hover {
+            transform: translateY(-50px);
+            border-color: var(--primary-color);
+        }
+
+        .product-card h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .btn-buy {
             display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
             margin-top: 15px;
-            width: 80%;
+            transition: background 0.3s;
+        }
+
+        .btn-buy:hover {
+            background-color: #2d9249;
+        }
+
+        /* Área PIX */
+        .pix-section {
+            background: #e8f0fe;
+            text-align: center;
+            border: 2px solid var(--primary-color);
+        }
+
+        .pix-key {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            display: block;
+            margin: 20px auto;
+            font-family: monospace;
+            font-size: 1.2em;
+            max-width: 400px;
+            border: 1px solid #ddd;
+        }
+
+        .btn-copy {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
         }
 
         footer {
-            margin-top: 50px;
-            font-size: 10px;
-            color: #444;
+            background: #202124;
+            color: white;
             text-align: center;
-            padding-bottom: 30px;
+            padding: 50px 20px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2em; }
+            .container { margin-top: -30px; }
         }
     </style>
 </head>
 <body>
 
+    <header>
+        <h1>Portal Conexão Próxima</h1>
+        <p>Inovação Digital, Mentorias e Solidariedade</p>
+    </header>
+
     <div class="container">
-        <header>
-            <div class="logo-placeholder">G</div>
-            <h1>Radar de Lucro IA</h1>
-            <p class="sub">Ferramentas de Elite para Resultados Reais</p>
-        </header>
+        
+        <section class="card">
+            <h2>Nossa Missão</h2>
+            <p>O <strong>Portal Conexão Próxima</strong> é um hub que une o conhecimento digital à responsabilidade social. Aqui você encontra as melhores ferramentas para evoluir sua carreira online e, ao mesmo tempo, contribui para causas que transformam vidas.</p>
+        </section>
 
-        <a href="https://www.iadivulgadora.com.br/" class="link-card vip" target="_blank">
-            <span class="badge">🔥 Mais Vendido</span>
-            <i class="fas fa-robot"></i>
-            <div class="content">
-                <span class="title">IA Divulgadora Automática</span>
-                <span class="description">A ferramenta que trabalha enquanto você dorme.</span>
+        <section class="card">
+            <h2>Oportunidades e Mentorias</h2>
+            <div class="affiliate-grid">
+                
+                <div class="product-card">
+                    <h3>Mentoria Marcelo Brigadeiro</h3>
+                    <p>Aprenda com quem domina o mercado. Estratégia e resultados reais.</p>
+                    <a href="https://pay.kiwify.com.br/U7" target="_blank" class="btn-buy">Acessar Mentoria</a>
+                </div>
+
+                <div class="product-card">
+                    <h3>IA Divulgadora</h3>
+                    <p>Automatize suas vendas e divulgações com o poder da Inteligência Artificial.</p>
+                    <a href="https://pay.kiwify.com.br/KOQ" target="_blank" class="btn-buy">Conhecer Ferramenta</a>
+                </div>
+
+                <div class="product-card">
+                    <h3>Negócio Online com IA</h3>
+                    <p>Construa sua estrutura digital do zero utilizando as melhores IAs do mercado.</p>
+                    <a href="#" target="_blank" class="btn-buy">Saiba Mais</a>
+                </div>
+
             </div>
-        </a>
+        </section>
 
-        <a href="https://negocioonlinecomia.com.br/" class="link-card" target="_blank">
-            <i class="fas fa-brain"></i>
-            <div class="content">
-                <span class="title">Negócio Online com IA</span>
-                <span class="description">Aprenda a lucrar com inteligência artificial.</span>
-            </div>
-        </a>
+        <section class="card pix-section">
+            <h2>Ajude a Próxima Causa</h2>
+            <p>Parte do que fazemos é destinado a apoiar quem mais precisa. Sua doação via Pix fortalece essa corrente de bem.</p>
+            <span class="pix-key" id="pixKey">ryanmurilog@gmail.com</span>
+            <button class="btn-copy" onclick="copyPix()">Copiar Chave Pix</button>
+            <p style="margin-top: 15px; font-size: 0.8em; color: #555;">Favorecido: Ryan Murilo</p>
+        </section>
 
-        <a href="https://marcelobrigadeiro.com/" class="link-card" target="_blank">
-            <i class="fas fa-fire"></i>
-            <div class="content">
-                <span class="title">Estratégias Marcelo Brigadeiro</span>
-                <span class="description">Mentalidade e táticas de quem domina o mercado.</span>
-            </div>
-        </a>
-
-        <a href="https://pay.kiwify.com.br/U7j53K4" class="link-card" target="_blank" style="border-style: dotted;">
-            <i class="fas fa-shopping-cart"></i>
-            <div class="content">
-                <span class="title">Acesso Método U7</span>
-                <span class="description">Checkout seguro via Kiwify.</span>
-            </div>
-        </a>
-
-        <a href="https://pay.kiwify.com.br/koqzx06" class="link-card" target="_blank" style="border-style: dotted;">
-            <i class="fas fa-shopping-cart"></i>
-            <div class="content">
-                <span class="title">Acesso Método KOQ</span>
-                <span class="description">Comece agora sua transformação.</span>
-            </div>
-        </a>
-
-        <a href="https://www.instagram.com/professorcucabr/" class="link-card" target="_blank">
-            <i class="fab fa-instagram"></i>
-            <div class="content">
-                <span class="title">Siga o Professor Cuca</span>
-                <span class="description">Dicas exclusivas no Instagram.</span>
-            </div>
-        </a>
-
-        <div class="donation-box">
-            <h3 style="margin: 0; font-size: 16px;">Projeto Ajuda a Próxima</h3>
-            <p style="font-size: 12px; color: #777; margin-top: 10px;">Contribua com nosso projeto social e ajude a manter nossas ferramentas gratuitas.</p>
-            <a href="#" class="btn-pix"><i class="fas fa-qrcode"></i> APOIAR VIA PIX</a>
-        </div>
-
-        <footer>
-            GEIMISON DA SILVA CHAVES &copy; 2026<br>
-            Página Profissional de Vendas e Doações
-        </footer>
     </div>
+
+    <footer>
+        <p>&copy; 2026 Portal Conexão Próxima. Todos os direitos reservados.</p>
+        <p style="font-size: 0.8em; opacity: 0.7;">Desenvolvido para conectar pessoas e oportunidades.</p>
+    </footer>
+
+    <script>
+        function copyPix() {
+            const pixText = document.getElementById('pixKey').innerText;
+            navigator.clipboard.writeText(pixText).then(() => {
+                alert('Chave Pix copiada! Muito obrigado por ajudar.');
+            });
+        }
+    </script>
 
 </body>
 </html>
