@@ -3,62 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Conexão Próxima - Inovação e Solidariedade</title>
+    <title>Portal Conexão Próxima</title>
     <style>
-        :root { --p: #1a73e8; --s: #34a853; --d: #202124; --l: #f8f9fa; }
-        body { font-family: sans-serif; margin: 0; background: var(--l); color: var(--d); line-height: 1.6; }
-        header { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 60px 20px; text-align: center; }
-        header h1 { margin: 0; font-size: 2.5em; text-transform: uppercase; }
-        .container { max-width: 900px; margin: -30px auto 40px; padding: 0 20px; }
-        .card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin-bottom: 25px; }
-        h2 { color: var(--p); text-align: center; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .p-card { border: 1px solid #ddd; padding: 20px; border-radius: 10px; text-align: center; }
-        .btn { display: inline-block; background: var(--s); color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; margin-top: 10px; }
-        .pix-box { background: #e8f0fe; text-align: center; padding: 20px; border: 2px dashed var(--p); border-radius: 10px; }
-        .pix-key { display: block; background: white; padding: 10px; margin: 10px 0; font-family: monospace; border: 1px solid #ccc; }
-        .btn-copy { background: var(--p); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
-        footer { text-align: center; padding: 30px; font-size: 0.8em; color: #666; }
+        :root { --p: #1a73e8; --s: #34a853; --d: #202124; --l: #f4f7f9; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--l); color: var(--d); }
+        header { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 60px 20px; text-align: center; clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%); }
+        .container { max-width: 900px; margin: -40px auto 40px; padding: 0 20px; }
+        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-bottom: 25px; border: none; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .p-card { border: 1px solid #eee; padding: 20px; border-radius: 12px; text-align: center; transition: 0.3s; }
+        .p-card:hover { transform: translateY(-5px); border-color: var(--p); }
+        .btn { display: inline-block; background: var(--s); color: white; text-decoration: none; padding: 12px 25px; border-radius: 8px; font-weight: bold; margin-top: 15px; }
+        .pix-box { background: #e8f0fe; text-align: center; padding: 30px; border: 2px dashed var(--p); border-radius: 15px; }
+        .pix-key { display: block; background: white; padding: 15px; margin: 15px 0; font-family: monospace; font-size: 1.2em; border-radius: 8px; border: 1px solid #cce5ff; }
+        .btn-copy { background: var(--p); color: white; border: none; padding: 15px 30px; border-radius: 8px; cursor: pointer; font-weight: bold; }
+        #render-status { color: #666; font-size: 0.9em; text-align: center; margin-top: 10px; }
+        footer { text-align: center; padding: 40px; color: #777; }
     </style>
 </head>
 <body>
     <header>
         <h1>Portal Conexão Próxima</h1>
-        <p>Mentoria, Inteligência Artificial e Apoio Social</p>
+        <p>Inovação Digital & Solidariedade</p>
     </header>
     <div class="container">
         <section class="card">
             <h2>Nossa Missão</h2>
-            <p>Unimos tecnologia e solidariedade. Aqui você acessa as melhores ferramentas digitais e ajuda a transformar vidas.</p>
+            <p>Conectamos você às melhores oportunidades do mercado digital, destinando parte dos resultados para apoiar quem mais precisa.</p>
+            <div id="render-status">Sincronizando com servidor...</div>
         </section>
+
         <section class="card">
-            <h2>Oportunidades e Mentorias</h2>
+            <h2>Cursos e Mentorias</h2>
             <div class="grid">
                 <div class="p-card">
-                    <h3>Mentoria Elite</h3>
-                    <p>Estratégias avançadas de mercado.</p>
-                    <a href="https://pay.kiwify.com.br/U7" target="_blank" class="btn">Acessar Agora</a>
+                    <h3>Mentoria Marcelo Brigadeiro</h3>
+                    <p>Aprenda estratégias reais de vendas online.</p>
+                    <a href="https://pay.kiwify.com.br/U7" target="_blank" class="btn">Acessar Mentoria</a>
                 </div>
                 <div class="p-card">
                     <h3>IA Divulgadora</h3>
-                    <p>Automatize suas vendas com IA.</p>
-                    <a href="https://pay.kiwify.com.br/KOQ" target="_blank" class="btn">Conhecer</a>
+                    <p>Potencialize seu alcance com automação inteligente.</p>
+                    <a href="https://pay.kiwify.com.br/KOQ" target="_blank" class="btn">Garantir Acesso</a>
                 </div>
             </div>
         </section>
+
         <section class="card pix-box">
-            <h2>Contribua com o Projeto</h2>
-            <p>Sua doação ajuda a manter nossas ações sociais ativas.</p>
-            <span class="pix-key" id="pk">ryanmurilog@gmail.com</span>
-            <button class="btn-copy" onclick="cp()">Copiar Chave Pix</button>
+            <h2>Ajuda à Próxima Causa</h2>
+            <p>Sua doação direta via Pix faz a diferença agora.</p>
+            <span class="pix-key" id="pixKey">ryanmurilog@gmail.com</span>
+            <button class="btn-copy" onclick="copyPix()">Copiar Chave Pix</button>
+            <p style="font-size: 0.8em; margin-top: 10px;">Favorecido: Ryan Murilo</p>
         </section>
     </div>
     <footer><p>&copy; 2026 Portal Conexão Próxima</p></footer>
+
     <script>
-        function cp() {
-            const t = document.getElementById('pk').innerText;
-            navigator.clipboard.writeText(t).then(() => alert('Pix copiado!'));
+        function copyPix() {
+            const t = document.getElementById('pixKey').innerText;
+            navigator.clipboard.writeText(t).then(() => alert('Chave Pix copiada!'));
         }
+
+        // CONEXÃO COM O RENDER
+        fetch('https://ajuda-a-proxima.onrender.com')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('render-status').innerText = "Servidor Online";
+                console.log("Resposta do Render:", data);
+            })
+            .catch(err => {
+                document.getElementById('render-status').innerText = "Servidor em Standby";
+                console.log("Erro ao conectar no Render", err);
+            });
     </script>
 </body>
 </html>
