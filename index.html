@@ -3,126 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radar de Oportunidades & Tecnologia</title>
+    <title>Radar de Oportunidades - Geimison Silva</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #1a73e8;
-            --secondary: #27ae60;
-            --accent: #ee4d2d;
-            --dark: #121212;
-            --light: #f8f9fa;
+            --primary: #00ff88; /* Verde Neon para atrair clique */
+            --bg: #0a0a0a;
+            --card: #161616;
+            --text: #ffffff;
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--dark);
-            color: var(--light);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .container {
-            max-width: 600px;
-            margin: 0 auto;
+            width: 100%;
+            max-width: 450px;
             padding: 20px;
+            box-sizing: border-box;
         }
 
         header {
             text-align: center;
-            padding: 40px 0;
+            margin-bottom: 30px;
         }
 
-        .profile-img {
-            width: 100px;
-            height: 100px;
+        .logo-placeholder {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(45deg, #00ff88, #00bd68);
             border-radius: 50%;
-            border: 3px solid var(--primary);
-            margin-bottom: 15px;
-        }
-
-        h1 { font-size: 24px; margin: 10px 0; }
-        .tagline { color: #aaa; font-size: 14px; margin-bottom: 30px; }
-
-        /* Estilo dos Cards de Venda */
-        .card {
-            background: #1e1e1e;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            border: 1px solid #333;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-            text-decoration: none;
-            color: white;
-            display: block;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-        }
-
-        .card.featured {
-            border: 2px solid var(--secondary);
-            background: linear-gradient(145deg, #1e1e1e, #1a2e23);
-        }
-
-        .card-title {
-            font-size: 18px;
-            font-weight: bold;
+            margin: 0 auto 15px;
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 8px;
+            justify-content: center;
+            font-size: 40px;
+            color: black;
+            font-weight: bold;
         }
 
-        .card-desc {
-            font-size: 13px;
-            color: #bbb;
+        h1 { font-size: 20px; margin: 0; letter-spacing: 1px; }
+        .sub { color: #888; font-size: 14px; margin-top: 5px; }
+
+        /* Estilo dos Botões de Venda */
+        .link-card {
+            background: var(--card);
+            border: 1px solid #222;
+            border-radius: 15px;
+            padding: 18px;
+            margin-bottom: 15px;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+            position: relative;
         }
+
+        .link-card:hover {
+            transform: scale(1.03);
+            border-color: var(--primary);
+            background: #1c1c1c;
+        }
+
+        .link-card.vip {
+            border: 1px solid var(--primary);
+            background: linear-gradient(145deg, #161616, #002b17);
+        }
+
+        .link-card i {
+            font-size: 24px;
+            color: var(--primary);
+            width: 30px;
+            text-align: center;
+        }
+
+        .content { flex: 1; }
+        .title { display: block; font-weight: bold; font-size: 16px; margin-bottom: 3px; }
+        .description { display: block; font-size: 12px; color: #aaa; }
 
         .badge {
-            background: var(--secondary);
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            background: var(--primary);
+            color: black;
             font-size: 10px;
-            padding: 2px 8px;
-            border-radius: 10px;
+            font-weight: bold;
+            padding: 3px 10px;
+            border-radius: 20px;
             text-transform: uppercase;
         }
 
         /* Seção de Doação */
-        .donation-section {
+        .donation-box {
             margin-top: 40px;
+            background: #111;
             padding: 20px;
-            background: #252525;
-            border-radius: 12px;
+            border-radius: 20px;
             text-align: center;
-            border: 1px dashed #444;
+            border: 1px dashed #333;
         }
 
         .btn-pix {
             background: #32bcad;
             color: white;
-            padding: 12px 25px;
-            border-radius: 8px;
+            padding: 12px 20px;
+            border-radius: 10px;
             text-decoration: none;
             font-weight: bold;
             display: inline-block;
-            margin-top: 10px;
+            margin-top: 15px;
+            width: 80%;
         }
 
         footer {
+            margin-top: 50px;
+            font-size: 10px;
+            color: #444;
             text-align: center;
-            padding: 40px 0;
-            font-size: 12px;
-            color: #666;
-        }
-
-        .price-tag {
-            color: var(--secondary);
-            font-weight: bold;
-            display: block;
-            margin-top: 10px;
+            padding-bottom: 30px;
         }
     </style>
 </head>
@@ -130,54 +139,69 @@
 
     <div class="container">
         <header>
-            <img src="https://via.placeholder.com/100" alt="Logo" class="profile-img">
-            <h1>Radar de Lucro & IA</h1>
-            <p class="tagline">Oportunidades validadas para transformar sua realidade digital</p>
+            <div class="logo-placeholder">G</div>
+            <h1>Radar de Lucro IA</h1>
+            <p class="sub">Ferramentas de Elite para Resultados Reais</p>
         </header>
 
-        <a href="https://www.iadivulgadora.com.br/" target="_blank" class="card featured">
-            <div class="card-title">
-                <i class="fas fa-robot" style="color: #00f2ff;"></i> IA Divulgradora 
-                <span class="badge">Alta Conversão</span>
+        <a href="https://www.iadivulgadora.com.br/" class="link-card vip" target="_blank">
+            <span class="badge">🔥 Mais Vendido</span>
+            <i class="fas fa-robot"></i>
+            <div class="content">
+                <span class="title">IA Divulgadora Automática</span>
+                <span class="description">A ferramenta que trabalha enquanto você dorme.</span>
             </div>
-            <p class="card-desc">A ferramenta definitiva para automatizar suas vendas usando Inteligência Artificial de ponta.</p>
-            <span class="price-tag">Oferta Especial Ativada →</span>
         </a>
 
-        <a href="https://negocioonlinecomia.com.br/" target="_blank" class="card">
-            <div class="card-title"><i class="fas fa-brain" style="color: #a29bfe;"></i> Negócio Online com IA</div>
-            <p class="card-desc">Aprenda a criar uma estrutura lucrativa do zero usando as melhores IAs do mercado.</p>
+        <a href="https://negocioonlinecomia.com.br/" class="link-card" target="_blank">
+            <i class="fas fa-brain"></i>
+            <div class="content">
+                <span class="title">Negócio Online com IA</span>
+                <span class="description">Aprenda a lucrar com inteligência artificial.</span>
+            </div>
         </a>
 
-        <a href="https://marcelobrigadeiro.com/" target="_blank" class="card">
-            <div class="card-title"><i class="fas fa-user-tie" style="color: #fab1a0;"></i> Mentoria Marcelo Brigadeiro</div>
-            <p class="card-desc">Estratégias de quem já faturou milhões. Conteúdo validado e direto ao ponto.</p>
+        <a href="https://marcelobrigadeiro.com/" class="link-card" target="_blank">
+            <i class="fas fa-fire"></i>
+            <div class="content">
+                <span class="title">Estratégias Marcelo Brigadeiro</span>
+                <span class="description">Mentalidade e táticas de quem domina o mercado.</span>
+            </div>
         </a>
 
-        <a href="https://www.instagram.com/professorcucabr/" target="_blank" class="card">
-            <div class="card-title"><i class="fab fa-instagram" style="color: #e1306c;"></i> Professor Cuca BR</div>
-            <p class="card-desc">Siga para dicas diárias de tecnologia, automação e aprendizado acelerado.</p>
+        <a href="https://pay.kiwify.com.br/U7j53K4" class="link-card" target="_blank" style="border-style: dotted;">
+            <i class="fas fa-shopping-cart"></i>
+            <div class="content">
+                <span class="title">Acesso Método U7</span>
+                <span class="description">Checkout seguro via Kiwify.</span>
+            </div>
         </a>
 
-        <h3 style="margin-top: 30px; font-size: 16px; color: var(--primary);">🔥 ACESSO IMEDIATO (Checkout)</h3>
-        
-        <a href="https://pay.kiwify.com.br/U7j53K4" target="_blank" class="card" style="padding: 15px;">
-            <div class="card-title" style="font-size: 15px;"><i class="fas fa-bolt" style="color: #f1c40f;"></i> Método Rápido U7</div>
+        <a href="https://pay.kiwify.com.br/koqzx06" class="link-card" target="_blank" style="border-style: dotted;">
+            <i class="fas fa-shopping-cart"></i>
+            <div class="content">
+                <span class="title">Acesso Método KOQ</span>
+                <span class="description">Comece agora sua transformação.</span>
+            </div>
         </a>
 
-        <a href="https://pay.kiwify.com.br/koqzx06" target="_blank" class="card" style="padding: 15px;">
-            <div class="card-title" style="font-size: 15px;"><i class="fas fa-rocket" style="color: #e67e22;"></i> Acesso VIP KOQ</div>
+        <a href="https://www.instagram.com/professorcucabr/" class="link-card" target="_blank">
+            <i class="fab fa-instagram"></i>
+            <div class="content">
+                <span class="title">Siga o Professor Cuca</span>
+                <span class="description">Dicas exclusivas no Instagram.</span>
+            </div>
         </a>
 
-        <div class="donation-section">
-            <h3>Projeto Ajuda a Próxima</h3>
-            <p style="font-size: 13px; color: #aaa;">Gostou do conteúdo? Apoie nosso projeto de tecnologia e ajuda social para mantermos o servidor ativo.</p>
-            <a href="#" class="btn-pix"><i class="fas fa-qrcode"></i> Apoiar via PIX</a>
+        <div class="donation-box">
+            <h3 style="margin: 0; font-size: 16px;">Projeto Ajuda a Próxima</h3>
+            <p style="font-size: 12px; color: #777; margin-top: 10px;">Contribua com nosso projeto social e ajude a manter nossas ferramentas gratuitas.</p>
+            <a href="#" class="btn-pix"><i class="fas fa-qrcode"></i> APOIAR VIA PIX</a>
         </div>
 
         <footer>
-            &copy; 2026 - Desenvolvido por Geimison Silva Chaves<br>
-            Foco em Automação e Resultados.
+            GEIMISON DA SILVA CHAVES &copy; 2026<br>
+            Página Profissional de Vendas e Doações
         </footer>
     </div>
 
