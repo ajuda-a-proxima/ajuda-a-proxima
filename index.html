@@ -3,212 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Conexão Próxima - Evolução e Solidariedade</title>
+    <title>Portal Conexão Próxima - Inovação e Solidariedade</title>
     <style>
-        :root {
-            --primary-color: #1a73e8;
-            --secondary-color: #34a853;
-            --dark-color: #202124;
-            --light-bg: #f8f9fa;
-        }
-
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--light-bg);
-            color: var(--dark-color);
-            line-height: 1.6;
-        }
-
-        header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 3.5em;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        header p {
-            font-size: 1.3em;
-            margin-top: 15px;
-            opacity: 0.9;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: -50px auto 60px;
-            padding: 0 20px;
-        }
-
-        .card {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-        }
-
-        h2 {
-            color: var(--primary-color);
-            text-align: center;
-            font-size: 2em;
-            margin-bottom: 30px;
-        }
-
-        /* Grade de Afiliados */
-        .affiliate-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .product-card {
-            background: #fff;
-            border: 1px solid #e0e0e0;
-            padding: 25px;
-            border-radius: 12px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .product-card:hover {
-            transform: translateY(-50px);
-            border-color: var(--primary-color);
-        }
-
-        .product-card h3 {
-            margin-top: 0;
-            color: #333;
-        }
-
-        .btn-buy {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: white;
-            text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 8px;
-            font-weight: bold;
-            margin-top: 15px;
-            transition: background 0.3s;
-        }
-
-        .btn-buy:hover {
-            background-color: #2d9249;
-        }
-
-        /* Área PIX */
-        .pix-section {
-            background: #e8f0fe;
-            text-align: center;
-            border: 2px solid var(--primary-color);
-        }
-
-        .pix-key {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            display: block;
-            margin: 20px auto;
-            font-family: monospace;
-            font-size: 1.2em;
-            max-width: 400px;
-            border: 1px solid #ddd;
-        }
-
-        .btn-copy {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1.1em;
-        }
-
-        footer {
-            background: #202124;
-            color: white;
-            text-align: center;
-            padding: 50px 20px;
-        }
-
-        @media (max-width: 768px) {
-            header h1 { font-size: 2.2em; }
-            .container { margin-top: -30px; }
-        }
+        :root { --p: #1a73e8; --s: #34a853; --d: #202124; --l: #f8f9fa; }
+        body { font-family: sans-serif; margin: 0; background: var(--l); color: var(--d); line-height: 1.6; }
+        header { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 60px 20px; text-align: center; }
+        header h1 { margin: 0; font-size: 2.5em; text-transform: uppercase; }
+        .container { max-width: 900px; margin: -30px auto 40px; padding: 0 20px; }
+        .card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin-bottom: 25px; }
+        h2 { color: var(--p); text-align: center; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .p-card { border: 1px solid #ddd; padding: 20px; border-radius: 10px; text-align: center; }
+        .btn { display: inline-block; background: var(--s); color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; margin-top: 10px; }
+        .pix-box { background: #e8f0fe; text-align: center; padding: 20px; border: 2px dashed var(--p); border-radius: 10px; }
+        .pix-key { display: block; background: white; padding: 10px; margin: 10px 0; font-family: monospace; border: 1px solid #ccc; }
+        .btn-copy { background: var(--p); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+        footer { text-align: center; padding: 30px; font-size: 0.8em; color: #666; }
     </style>
 </head>
 <body>
-
     <header>
         <h1>Portal Conexão Próxima</h1>
-        <p>Inovação Digital, Mentorias e Solidariedade</p>
+        <p>Mentoria, Inteligência Artificial e Apoio Social</p>
     </header>
-
     <div class="container">
-        
         <section class="card">
             <h2>Nossa Missão</h2>
-            <p>O <strong>Portal Conexão Próxima</strong> é um hub que une o conhecimento digital à responsabilidade social. Aqui você encontra as melhores ferramentas para evoluir sua carreira online e, ao mesmo tempo, contribui para causas que transformam vidas.</p>
+            <p>Unimos tecnologia e solidariedade. Aqui você acessa as melhores ferramentas digitais e ajuda a transformar vidas.</p>
         </section>
-
         <section class="card">
             <h2>Oportunidades e Mentorias</h2>
-            <div class="affiliate-grid">
-                
-                <div class="product-card">
-                    <h3>Mentoria Marcelo Brigadeiro</h3>
-                    <p>Aprenda com quem domina o mercado. Estratégia e resultados reais.</p>
-                    <a href="https://pay.kiwify.com.br/U7" target="_blank" class="btn-buy">Acessar Mentoria</a>
+            <div class="grid">
+                <div class="p-card">
+                    <h3>Mentoria Elite</h3>
+                    <p>Estratégias avançadas de mercado.</p>
+                    <a href="https://pay.kiwify.com.br/U7" target="_blank" class="btn">Acessar Agora</a>
                 </div>
-
-                <div class="product-card">
+                <div class="p-card">
                     <h3>IA Divulgadora</h3>
-                    <p>Automatize suas vendas e divulgações com o poder da Inteligência Artificial.</p>
-                    <a href="https://pay.kiwify.com.br/KOQ" target="_blank" class="btn-buy">Conhecer Ferramenta</a>
+                    <p>Automatize suas vendas com IA.</p>
+                    <a href="https://pay.kiwify.com.br/KOQ" target="_blank" class="btn">Conhecer</a>
                 </div>
-
-                <div class="product-card">
-                    <h3>Negócio Online com IA</h3>
-                    <p>Construa sua estrutura digital do zero utilizando as melhores IAs do mercado.</p>
-                    <a href="#" target="_blank" class="btn-buy">Saiba Mais</a>
-                </div>
-
             </div>
         </section>
-
-        <section class="card pix-section">
-            <h2>Ajude a Próxima Causa</h2>
-            <p>Parte do que fazemos é destinado a apoiar quem mais precisa. Sua doação via Pix fortalece essa corrente de bem.</p>
-            <span class="pix-key" id="pixKey">ryanmurilog@gmail.com</span>
-            <button class="btn-copy" onclick="copyPix()">Copiar Chave Pix</button>
-            <p style="margin-top: 15px; font-size: 0.8em; color: #555;">Favorecido: Ryan Murilo</p>
+        <section class="card pix-box">
+            <h2>Contribua com o Projeto</h2>
+            <p>Sua doação ajuda a manter nossas ações sociais ativas.</p>
+            <span class="pix-key" id="pk">ryanmurilog@gmail.com</span>
+            <button class="btn-copy" onclick="cp()">Copiar Chave Pix</button>
         </section>
-
     </div>
-
-    <footer>
-        <p>&copy; 2026 Portal Conexão Próxima. Todos os direitos reservados.</p>
-        <p style="font-size: 0.8em; opacity: 0.7;">Desenvolvido para conectar pessoas e oportunidades.</p>
-    </footer>
-
+    <footer><p>&copy; 2026 Portal Conexão Próxima</p></footer>
     <script>
-        function copyPix() {
-            const pixText = document.getElementById('pixKey').innerText;
-            navigator.clipboard.writeText(pixText).then(() => {
-                alert('Chave Pix copiada! Muito obrigado por ajudar.');
-            });
+        function cp() {
+            const t = document.getElementById('pk').innerText;
+            navigator.clipboard.writeText(t).then(() => alert('Pix copiado!'));
         }
     </script>
-
 </body>
 </html>
