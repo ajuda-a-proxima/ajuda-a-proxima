@@ -12,16 +12,20 @@
 
 <style>
 body{margin:0;background:#000;color:#fff;text-align:center;font-family:'Fredoka',sans-serif}
-h1{color:#0ff}
-button{padding:10px;margin:5px;border-radius:10px;border:none;background:#ff0}
+h1{font-size:2.8em;color:#00ffff;margin:10px 0}
+button{padding:10px 14px;margin:6px;border:none;border-radius:12px;background:#ff0;cursor:pointer}
 .videos{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
-iframe{width:280px;height:160px;border-radius:10px}
-canvas{background:#fff;border-radius:10px;touch-action:none}
-.colors{display:flex;justify-content:center;flex-wrap:wrap}
-.color{width:30px;height:30px;border-radius:50%;margin:5px;cursor:pointer}
-#gallery,#testimonials{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
-.card{background:#111;padding:10px;border-radius:10px}
-#chat{height:120px;overflow:auto;background:#000;padding:5px;border-radius:5px}
+iframe{width:300px;height:170px;border-radius:12px}
+
+#draw{background:#fff;border-radius:12px;touch-action:none;margin-top:10px}
+.colors{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:8px 0}
+.color{width:28px;height:28px;border-radius:50%;cursor:pointer;border:2px solid #222}
+
+#chatBox{background:#111;max-width:320px;margin:10px auto;padding:10px;border-radius:12px}
+#chat{height:140px;overflow:auto;background:#000;padding:6px;border-radius:8px;text-align:left}
+input{padding:8px;border-radius:8px;border:none;margin:4px}
+
+.tip{display:inline-block;background:#222;padding:6px 10px;border-radius:10px;margin:4px;cursor:pointer}
 </style>
 </head>
 
@@ -29,10 +33,13 @@ canvas{background:#fff;border-radius:10px;touch-action:none}
 
 <h1>🎮 RYAN BROTHER 🚀</h1>
 
+<button onclick="subscribe()">🔥 SE INSCREVER 🔥</button>
+
 <input id="name" placeholder="Seu nome">
 <button onclick="login()">Entrar</button>
 <p id="userDisplay"></p>
 
+<!-- VIDEOS -->
 <h2>📺 Vídeos</h2>
 <div class="videos">
 <iframe src="https://www.youtube.com/embed/2pT_e6ukSCo"></iframe>
@@ -41,23 +48,29 @@ canvas{background:#fff;border-radius:10px;touch-action:none}
 <iframe src="https://www.youtube.com/embed/Da8ti-pUHXA"></iframe>
 </div>
 
-<h2>🎨 Desenho</h2>
+<!-- DICAS -->
+<h2>💡 Ideias de desenho</h2>
+<div>
+<span class="tip" onclick="setIdea('robô')">🤖 Robô</span>
+<span class="tip" onclick="setIdea('carro')">🚗 Carro</span>
+<span class="tip" onclick="setIdea('casa')">🏠 Casa</span>
+<span class="tip" onclick="setIdea('dragão')">🐉 Dragão</span>
+<span class="tip" onclick="setIdea('animal')">🐶 Animal</span>
+</div>
+
+<p id="idea"></p>
+
+<!-- DESENHO -->
+<h2>🎨 Desenhe</h2>
 <canvas id="draw" width="300" height="300"></canvas>
 
-<div class="colors">
-<div class="color" style="background:red" onclick="setColor('red')"></div>
-<div class="color" style="background:blue" onclick="setColor('blue')"></div>
-<div class="color" style="background:green" onclick="setColor('green')"></div>
-<div class="color" style="background:black" onclick="setColor('black')"></div>
-</div>
+<div class="colors" id="colors"></div>
 
 <button onclick="mixColor()">🌈 Misturar</button>
 <button onclick="clearCanvas()">🧹 Limpar</button>
 <button onclick="saveDraw()">💾 Salvar</button>
 
-<h2>🖼️ Galeria</h2>
-<div id="gallery"></div>
-
+<!-- JOGO -->
 <h2>🎮 Jogo</h2>
 <button onclick="play()">CLICA</button>
 <p id="score">0</p>
@@ -65,51 +78,69 @@ canvas{background:#fff;border-radius:10px;touch-action:none}
 <h2>🏆 Ranking</h2>
 <ul id="ranking"></ul>
 
+<!-- CHAT -->
 <h2>🤖 RayBot</h2>
-<div style="max-width:300px;margin:auto;">
+<div id="chatBox">
 <div id="chat"></div>
-<input id="msg">
+<input id="msg" placeholder="Fala comigo...">
 <button onclick="sendMsg()">Enviar</button>
 </div>
 
-<h2>💬 Testemunhos</h2>
-<div id="testimonials"></div>
-
-<input id="testName" placeholder="Nome">
-<input id="testMsg" placeholder="Comentário">
-<button onclick="sendTestimonial()">Enviar</button>
-
 <script>
 
-// CONFIG FIREBASE (SEU PROJETO)
+// 🔥 FIREBASE
 const firebaseConfig = {
-  apiKey: "AIzaSyCROWVPT74uPPmIk_mfpV3WDnoU15VzC9U",
-  authDomain: "canal-ryan-brother-roblox.firebaseapp.com",
-  databaseURL: "https://canal-ryan-brother-roblox-default-rtdb.firebaseio.com"
+ apiKey: "AIzaSyCROWVPT74uPPmIk_mfpV3WDnoU15VzC9U",
+ authDomain: "canal-ryan-brother-roblox.firebaseapp.com",
+ databaseURL: "https://canal-ryan-brother-roblox-default-rtdb.firebaseio.com"
 };
-
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
+
+// 🔊 SOM
+const audioClick = new Audio("https://www.soundjay.com/buttons/sounds/button-16.mp3");
 
 // LOGIN
 let user="";
 function login(){
  user=document.getElementById("name").value;
- if(!user)return alert("Digite nome");
+ if(!user)return;
  localStorage.setItem("user",user);
  document.getElementById("userDisplay").innerText="👤 "+user;
 }
-window.onload=function(){
+window.onload=()=>{
  let saved=localStorage.getItem("user");
  if(saved){user=saved;document.getElementById("userDisplay").innerText="👤 "+user;}
 };
 
+// YOUTUBE
+function subscribe(){
+ audioClick.play();
+ window.open("https://youtube.com/@ryanbrother6541");
+}
+
+// IDEIA
+function setIdea(txt){
+ document.getElementById("idea").innerText="Desenhe um "+txt+"!";
+}
+
+// CORES (GERA VÁRIAS)
+const colorsDiv=document.getElementById("colors");
+const palette=["red","blue","green","yellow","orange","purple","pink","brown","black","gray"];
+palette.forEach(c=>{
+ let d=document.createElement("div");
+ d.className="color";
+ d.style.background=c;
+ d.onclick=()=>color=c;
+ colorsDiv.appendChild(d);
+});
+
+let color="black";
+
 // DESENHO
 const canvas=document.getElementById("draw");
 const ctx=canvas.getContext("2d");
-let drawing=false,color="black";
-
-function setColor(c){color=c;}
+let drawing=false;
 
 canvas.addEventListener("pointerdown",()=>drawing=true);
 canvas.addEventListener("pointerup",()=>drawing=false);
@@ -120,62 +151,31 @@ canvas.addEventListener("pointermove",e=>{
  ctx.fillRect(e.clientX-r.left,e.clientY-r.top,4,4);
 });
 
+// MIX
 function mixColor(){
  color=`rgb(${Math.random()*255},${Math.random()*255},${Math.random()*255})`;
 }
 
+// LIMPAR
 function clearCanvas(){
  ctx.clearRect(0,0,canvas.width,canvas.height);
 }
 
-// SALVAR DESENHO
+// SALVAR
 function saveDraw(){
  if(!user)return alert("Digite nome");
  let id=Date.now();
  let img=canvas.toDataURL();
-
- db.ref("draws/"+id).set({
-   user:user,
-   image:img,
-   likes:0
- });
-}
-
-// GALERIA
-db.ref("draws").on("value",snap=>{
- let data=snap.val()||{};
- let g=document.getElementById("gallery");
- g.innerHTML="";
-
- for(let id in data){
-   let d=data[id];
-   let div=document.createElement("div");
-   div.className="card";
-
-   div.innerHTML=`
-   <p>${d.user}</p>
-   <img src="${d.image}" width="120"><br>
-   👍 ${d.likes||0}
-   <button onclick="like('${id}')">Curtir</button>
-   `;
-
-   g.appendChild(div);
- }
-});
-
-function like(id){
- db.ref("draws/"+id+"/likes").transaction(v=>(v||0)+1);
+ db.ref("draws/"+id).set({user,image:img});
 }
 
 // JOGO
 let score=0;
 function play(){
+ audioClick.play();
  score++;
  document.getElementById("score").innerText=score;
-
- if(user){
-   db.ref("ranking/"+user).set(score);
- }
+ if(user){db.ref("ranking/"+user).set(score);}
 }
 
 // RANKING
@@ -183,15 +183,14 @@ db.ref("ranking").on("value",snap=>{
  let data=snap.val()||{};
  let list=document.getElementById("ranking");
  list.innerHTML="";
-
- Object.keys(data).sort((a,b)=>data[b]-data[a]).slice(0,10).forEach(n=>{
-   let li=document.createElement("li");
-   li.innerText=n+" - "+data[n];
-   list.appendChild(li);
+ Object.keys(data).sort((a,b)=>data[b]-data[a]).forEach(n=>{
+  let li=document.createElement("li");
+  li.innerText=n+" - "+data[n];
+  list.appendChild(li);
  });
 });
 
-// IA
+// 🤖 CHAT MAIS VARIADO
 function sendMsg(){
  let input=document.getElementById("msg");
  let chat=document.getElementById("chat");
@@ -199,55 +198,27 @@ function sendMsg(){
 
  chat.innerHTML+=`<p>👦 ${input.value}</p>`;
 
- let r="🤖 Tenta outra!";
- if(t.includes("desenho")) r="🎨 Desenha um robô!";
- else if(t.includes("jogo")) r="🎮 Clica no jogo!";
- else if(t.includes("oi")) r="👋 Oi! Vamos brincar!";
+ let respostas=[
+ "🎮 Bora jogar!",
+ "🎨 Faz um desenho incrível!",
+ "🚀 Você é muito bom!",
+ "🔥 Tenta bater o recorde!",
+ "😄 Que tal ver os vídeos?"
+ ];
+
+ let r=respostas[Math.floor(Math.random()*respostas.length)];
+
+ if(t.includes("desenho")) r="🎨 Desenha um dragão!";
+ if(t.includes("jogo")) r="🎮 Clica no botão!";
+ if(t.includes("oi")) r="👋 Oii! Vamos brincar?";
 
  setTimeout(()=>{
-   chat.innerHTML+=`<p>${r}</p>`;
-   chat.scrollTop=chat.scrollHeight;
+  chat.innerHTML+=`<p>🤖 ${r}</p>`;
+  chat.scrollTop=chat.scrollHeight;
  },400);
 
  input.value="";
 }
-
-// TESTEMUNHO
-function sendTestimonial(){
- let name=document.getElementById("testName").value;
- let msg=document.getElementById("testMsg").value;
-
- if(!name||!msg)return;
-
- let id=Date.now();
-
- db.ref("testimonials/"+id).set({
-   name:name,
-   message:msg
- });
-}
-
-// CARREGAR TESTEMUNHOS
-db.ref("testimonials").on("value",snap=>{
- let data=snap.val()||{};
- let div=document.getElementById("testimonials");
-
- div.innerHTML="";
-
- for(let id in data){
-   let t=data[id];
-
-   let card=document.createElement("div");
-   card.className="card";
-
-   card.innerHTML=`
-   <p>${t.name}</p>
-   <p>"${t.message}"</p>
-   `;
-
-   div.appendChild(card);
- }
-});
 
 </script>
 
