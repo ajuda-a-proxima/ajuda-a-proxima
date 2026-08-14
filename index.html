@@ -1,542 +1,3252 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rian Brother | Hub Gamer & Códigos Roblox</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ryan Brother | Hub Oficial de Games, Códigos Roblox & Streams</title>
+  
+  <!-- Meta tags SEO e Redes Sociais -->
+  <meta name="description" content="Portal oficial do Ryan Brother (@ryanbrothertube). Códigos grátis de Roblox (MM2/Xerife, Blox Fruits, Adopt Me), Roleta de Prêmios, Redes Sociais (YouTube, TikTok, Instagram, Kwai, Twitch) e Chatbot!" />
+  <meta name="keywords" content="Ryan Brother, ryanbrother6541, codigos roblox, roblox promo codes, mm2 xerife, blox fruits, adopt me, brookhaven, roleta de premios, gamer" />
+  <meta name="theme-color" content="#090a10" />
 
-  <!-- PWA & Mobile Settings -->
-  <meta name="theme-color" content="#121214">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <!-- PWA Settings -->
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Ryan Brother" />
 
-  <!-- Font Awesome & Google Fonts -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
   <style>
     :root {
-      --bg-color: #0f1015;
-      --card-bg: #1a1c23;
-      --primary: #00ff88;
-      --primary-hover: #00cc6a;
-      --secondary: #ff0055;
-      --accent: #00d2ff;
-      --text: #ffffff;
-      --text-muted: #a0a0b0;
-      --border: rgba(255, 255, 255, 0.08);
+      --bg-dark: #07080f;
+      --bg-surface: #0f1322;
+      --bg-surface-2: #161c30;
+      --bg-card: rgba(22, 28, 48, 0.85);
+      
+      --cyan: #00f0ff;
+      --cyan-glow: rgba(0, 240, 255, 0.4);
+      --purple: #9d4edd;
+      --purple-glow: rgba(157, 78, 221, 0.4);
+      --magenta: #f72585;
+      --magenta-glow: rgba(247, 37, 133, 0.4);
+      --neon-green: #00ff88;
+      --neon-green-glow: rgba(0, 255, 136, 0.4);
+      --neon-gold: #ffb703;
+      --neon-gold-glow: rgba(255, 183, 3, 0.4);
+      --roblox-red: #e02424;
+      
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: rgba(255, 255, 255, 0.1);
+      
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --radius-full: 9999px;
+      
+      --font-display: 'Orbitron', sans-serif;
+      --font-heading: 'Rajdhani', sans-serif;
+      --font-fun: 'Fredoka', cursive;
+      --font-body: 'Inter', sans-serif;
+      
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Poppins', sans-serif;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      background-color: var(--bg-color);
-      color: var(--text);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px 12px 100px;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
       min-height: 100vh;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: -20%;
+      left: -10%;
+      width: 55vw;
+      height: 55vw;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 240, 255, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+      animation: floatGlow 12s ease-in-out infinite alternate;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -20%;
+      right: -10%;
+      width: 65vw;
+      height: 65vw;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(247, 37, 133, 0.12) 0%, rgba(157, 78, 221, 0.08) 50%, rgba(0, 0, 0, 0) 75%);
+      pointer-events: none;
+      z-index: 0;
+      animation: floatGlow2 15s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatGlow {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(40px, 60px) scale(1.1); }
+    }
+
+    @keyframes floatGlow2 {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(-50px, -40px) scale(1.15); }
     }
 
     .container {
       width: 100%;
-      max-width: 650px;
+      max-width: 1260px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      background: rgba(7, 8, 15, 0.88);
+      border-bottom: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 85px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .brand-logo .logo-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, var(--cyan), var(--purple), var(--magenta));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 22px;
+      color: #000;
+      box-shadow: 0 0 25px var(--cyan-glow);
+    }
+
+    .brand-logo .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-logo .brand-title {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.35rem;
+      letter-spacing: 1px;
+      background: linear-gradient(90deg, #ffffff, var(--cyan), #9d4edd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .brand-logo .brand-tag {
+      font-size: 0.75rem;
+      color: var(--cyan);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-family: var(--font-heading);
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.5px;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      position: relative;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--cyan);
+      text-shadow: 0 0 12px var(--cyan-glow);
+    }
+
+    .nav-links a.highlight-nav {
+      color: var(--neon-gold);
+      background: rgba(255, 183, 3, 0.12);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(255, 183, 3, 0.35);
+    }
+
+    .nav-links a.highlight-nav:hover {
+      background: var(--neon-gold);
+      color: #000;
+      box-shadow: 0 0 20px var(--neon-gold-glow);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Botão Instalar App */
+    .btn-install-app {
+      background: linear-gradient(135deg, var(--neon-green), #00d2ff);
+      color: #000;
+      border: none;
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 0 18px var(--neon-green-glow);
+      transition: var(--transition);
+    }
+
+    .btn-install-app:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 0 26px var(--neon-green-glow);
+    }
+
+    /* Botão Música de Fundo */
+    .btn-bg-music {
+      background: rgba(247, 37, 133, 0.15);
+      border: 1px solid rgba(247, 37, 133, 0.4);
+      color: var(--magenta);
+      padding: 8px 14px;
+      border-radius: var(--radius-full);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+
+    .btn-bg-music.playing {
+      background: var(--magenta);
+      color: #fff;
+      box-shadow: 0 0 18px var(--magenta-glow);
+    }
+
+    .btn-audio-toggle {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 8px 14px;
+      border-radius: var(--radius-full);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+
+    .btn-audio-toggle:hover {
+      background: rgba(0, 240, 255, 0.15);
+      border-color: var(--cyan);
+      color: var(--cyan);
+      box-shadow: 0 0 15px var(--cyan-glow);
+    }
+
+    .btn-audio-toggle.muted {
+      color: var(--text-muted);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(247, 37, 133, 0.15);
+      color: var(--magenta);
+      border: 1px solid rgba(247, 37, 133, 0.4);
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-family: var(--font-display);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--magenta);
+      border-radius: 50%;
+      animation: pulse-dot 1.5s infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.4); }
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-main);
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    section {
+      padding: 95px 0;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-tag {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 2.6rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #ffffff 30%, var(--cyan) 80%, var(--magenta) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 100px 0 80px 0;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: 3.6rem;
+      font-weight: 900;
+      line-height: 1.12;
+      letter-spacing: -1px;
+    }
+
+    .hero-headline span.highlight {
+      background: linear-gradient(135deg, var(--cyan), var(--purple), var(--magenta));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 35px var(--cyan-glow);
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 600px;
+    }
+
+    /* Audio Welcome Banner */
+    .audio-welcome-card {
+      background: linear-gradient(135deg, rgba(0, 240, 255, 0.12), rgba(157, 78, 221, 0.12), rgba(247, 37, 133, 0.08));
+      border: 1px solid rgba(0, 240, 255, 0.35);
+      border-radius: var(--radius-md);
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+    }
+
+    .audio-info {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .audio-wave-anim {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      height: 26px;
+    }
+
+    .audio-bar {
+      width: 4px;
+      background: var(--cyan);
+      border-radius: 2px;
+      animation: sound-bars 0.8s ease-in-out infinite alternate;
+    }
+
+    .audio-bar:nth-child(1) { height: 8px; animation-delay: 0.1s; background: var(--cyan); }
+    .audio-bar:nth-child(2) { height: 22px; animation-delay: 0.3s; background: var(--purple); }
+    .audio-bar:nth-child(3) { height: 26px; animation-delay: 0.2s; background: var(--magenta); }
+    .audio-bar:nth-child(4) { height: 14px; animation-delay: 0.4s; background: var(--neon-green); }
+
+    @keyframes sound-bars {
+      0% { height: 4px; }
+      100% { height: 26px; }
+    }
+
+    .audio-text h4 {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .audio-text p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .btn-play-voice {
+      background: linear-gradient(135deg, var(--cyan), var(--purple));
+      color: #000;
+      border: none;
+      border-radius: var(--radius-full);
+      padding: 11px 22px;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+      white-space: nowrap;
+      box-shadow: 0 4px 20px var(--cyan-glow);
+    }
+
+    .btn-play-voice:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 6px 25px var(--cyan-glow);
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--cyan), var(--purple));
+      color: #000;
+      text-decoration: none;
+      padding: 15px 30px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 25px var(--cyan-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 35px rgba(0, 240, 255, 0.55);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      text-decoration: none;
+      padding: 15px 30px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.15rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--neon-gold);
+      color: var(--neon-gold);
+      box-shadow: 0 0 25px var(--neon-gold-glow);
+    }
+
+    /* Hero Streamer Card Preview */
+    .hero-card-preview {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      backdrop-filter: blur(22px);
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+      border-top: 2px solid var(--cyan);
+    }
+
+    .streamer-profile {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      width: 92px;
+      height: 92px;
+    }
+
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #18223d, #2b1154);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--cyan);
+      border: 3px solid var(--cyan);
+      box-shadow: 0 0 25px var(--cyan-glow);
+    }
+
+    .online-indicator {
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      width: 20px;
+      height: 20px;
+      background: var(--neon-green);
+      border: 3px solid var(--bg-surface);
+      border-radius: 50%;
+      box-shadow: 0 0 12px var(--neon-green);
+    }
+
+    .streamer-info h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      margin-bottom: 4px;
+    }
+
+    .streamer-info p {
+      color: var(--cyan);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .stream-status-box {
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px dashed var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    .stream-meta-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 0.92rem;
+    }
+
+    .stream-meta-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .stream-meta-label {
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .stream-meta-val {
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .stats-counters {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      text-align: center;
+    }
+
+    .stat-box {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: var(--radius-sm);
+      padding: 12px 8px;
+      border: 1px solid var(--border-color);
+    }
+
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--cyan);
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Roblox Section */
+    .roblox-hub-section {
+      background: linear-gradient(180deg, var(--bg-dark) 0%, #0d1222 50%, var(--bg-dark) 100%);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      position: relative;
+    }
+
+    .roblox-hub-banner {
+      background: linear-gradient(135deg, rgba(224, 36, 36, 0.15), rgba(0, 240, 255, 0.15), rgba(157, 78, 221, 0.15));
+      border: 2px solid var(--roblox-red);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      box-shadow: 0 15px 45px rgba(224, 36, 36, 0.2);
+    }
+
+    .roblox-banner-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .roblox-logo-badge {
+      width: 64px;
+      height: 64px;
+      background: var(--roblox-red);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      color: #fff;
+      box-shadow: 0 0 25px rgba(224, 36, 36, 0.6);
+    }
+
+    .roblox-banner-text h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: #fff;
+    }
+
+    .roblox-banner-text p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .btn-redeem-official {
+      background: var(--neon-green);
+      color: #000;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.05rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 20px var(--neon-green-glow);
+      transition: var(--transition);
+    }
+
+    .btn-redeem-official:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 30px var(--neon-green-glow);
+    }
+
+    .codes-search-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      margin-bottom: 36px;
+    }
+
+    .search-input-wrapper {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .search-input-wrapper i {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--cyan);
+      font-size: 1.2rem;
+    }
+
+    .codes-search-input {
+      width: 100%;
+      background: rgba(10, 13, 25, 0.9);
+      border: 2px solid rgba(0, 240, 255, 0.4);
+      border-radius: var(--radius-full);
+      padding: 16px 20px 16px 54px;
+      font-size: 1.1rem;
+      color: #fff;
+      font-family: var(--font-body);
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .codes-search-input:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 25px var(--cyan-glow);
+    }
+
+    .quick-games-selector {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .quick-selector-label {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .game-chip-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+
+    .game-chip-btn:hover,
+    .game-chip-btn.active {
+      background: var(--cyan);
+      color: #000;
+      border-color: var(--cyan);
+      box-shadow: 0 0 15px var(--cyan-glow);
+    }
+
+    .game-chip-btn.featured {
+      border-color: var(--neon-gold);
+      color: var(--neon-gold);
+    }
+
+    .game-chip-btn.featured:hover,
+    .game-chip-btn.featured.active {
+      background: var(--neon-gold);
+      color: #000;
+      box-shadow: 0 0 15px var(--neon-gold-glow);
+    }
+
+    .codes-results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 24px;
+    }
+
+    .code-card {
+      background: var(--bg-surface-2);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .code-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--cyan);
+    }
+
+    .code-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--cyan);
+      box-shadow: 0 10px 30px rgba(0, 240, 255, 0.2);
+    }
+
+    .code-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+
+    .code-game-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: #fff;
+    }
+
+    .code-status-tag {
+      background: rgba(0, 255, 136, 0.15);
+      border: 1px solid var(--neon-green);
+      color: var(--neon-green);
+      font-size: 0.75rem;
+      font-family: var(--font-display);
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .code-reward-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 18px;
+      line-height: 1.4;
+    }
+
+    .code-copy-box {
+      background: #090c17;
+      border: 1px dashed var(--cyan);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .code-string {
+      font-family: 'Courier New', monospace;
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: var(--neon-gold);
+      letter-spacing: 1px;
+    }
+
+    .btn-copy-code {
+      background: var(--cyan);
+      color: #000;
+      border: none;
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .btn-copy-code:hover {
+      background: #fff;
+      box-shadow: 0 0 10px var(--cyan);
+    }
+
+    .live-tracker-bar {
+      margin-top: 40px;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .tracker-pulse {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--neon-green);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    /* Prize Wheel */
+    .wheel-section {
+      background: radial-gradient(circle at center, rgba(157, 78, 221, 0.08) 0%, rgba(0, 0, 0, 0) 75%);
+    }
+
+    .wheel-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .wheel-stage {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .wheel-outer-ring {
+      position: relative;
+      padding: 18px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(0, 240, 255, 0.25), rgba(157, 78, 221, 0.25), rgba(247, 37, 133, 0.25));
+      box-shadow: 0 0 50px rgba(0, 240, 255, 0.25), inset 0 0 20px rgba(157, 78, 221, 0.25);
+      border: 2px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .wheel-pointer {
+      position: absolute;
+      top: 0px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 34px;
+      height: 44px;
+      z-index: 10;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.7));
+    }
+
+    .wheel-pointer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 17px solid transparent;
+      border-right: 17px solid transparent;
+      border-top: 34px solid var(--magenta);
+    }
+
+    .wheel-pointer::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 3px;
+      width: 0;
+      height: 0;
+      border-left: 14px solid transparent;
+      border-right: 14px solid transparent;
+      border-top: 28px solid #ff758c;
+    }
+
+    #prizeWheelCanvas {
+      display: block;
+      border-radius: 50%;
+      background: #0d111e;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+      cursor: pointer;
+    }
+
+    .wheel-center-hub {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 72px;
+      height: 72px;
+      background: linear-gradient(135deg, #1a1e30, #0a0d17);
+      border: 3px solid var(--cyan);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px var(--cyan-glow);
+      z-index: 5;
+      cursor: pointer;
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 0.9rem;
+      color: var(--cyan);
+      text-transform: uppercase;
+      transition: var(--transition);
+    }
+
+    .wheel-center-hub:hover {
+      transform: translate(-50%, -50%) scale(1.08);
+      box-shadow: 0 0 35px var(--cyan);
+    }
+
+    .wheel-controls {
       display: flex;
       flex-direction: column;
       gap: 20px;
     }
 
-    /* HEADER */
-    .profile-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 24px;
-      text-align: center;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-      position: relative;
+    .wheel-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      backdrop-filter: blur(16px);
     }
 
-    .avatar {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      border: 3px solid var(--primary);
-      margin: 0 auto 12px;
+    .wheel-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+      color: var(--neon-gold);
       display: flex;
       align-items: center;
-      justify-content: center;
-      background: #252836;
-      font-size: 2.5rem;
-      color: var(--primary);
+      gap: 10px;
     }
 
-    .brand-title {
-      font-family: 'Rajdhani', sans-serif;
-      font-size: 2rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .wheel-prizes-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 20px 0;
+      list-style: none;
     }
 
-    .brand-subtitle {
-      color: var(--text-muted);
+    .wheel-prizes-list li {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
       font-size: 0.9rem;
-      margin-top: 4px;
-    }
-
-    .btn-audio {
-      margin-top: 14px;
-      background: rgba(0, 255, 136, 0.15);
-      border: 1px solid var(--primary);
-      color: var(--primary);
-      padding: 8px 16px;
-      border-radius: 25px;
-      cursor: pointer;
-      font-size: 0.85rem;
-      font-weight: 600;
-      transition: 0.2s;
-    }
-    .btn-audio:active { transform: scale(0.96); }
-
-    /* SEÇÕES */
-    .section-title {
-      font-family: 'Rajdhani', sans-serif;
-      font-size: 1.3rem;
-      color: var(--accent);
-      margin-bottom: 12px;
       display: flex;
       align-items: center;
       gap: 8px;
+      color: var(--text-main);
     }
 
-    /* REDES SOCIAIS */
-    .social-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
+    .wheel-prizes-list li i {
+      color: var(--cyan);
     }
 
-    .social-btn {
+    .spin-action-row {
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .btn-spin {
+      flex: 1;
+      background: linear-gradient(135deg, var(--neon-gold), #ff8800);
+      color: #000;
+      border: none;
+      padding: 16px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.15rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+      display: flex;
       align-items: center;
       justify-content: center;
-      padding: 14px;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      color: var(--text);
-      text-decoration: none;
-      font-size: 0.8rem;
-      gap: 6px;
-      transition: 0.2s;
+      gap: 10px;
+      box-shadow: 0 4px 25px rgba(255, 183, 3, 0.4);
+      transition: var(--transition);
     }
-    .social-btn i { font-size: 1.4rem; }
-    .social-btn.yt { color: #ff0000; }
-    .social-btn.tk { color: #00f2fe; }
-    .social-btn.ig { color: #e1306c; }
-    .social-btn:hover { border-color: var(--primary); transform: translateY(-2px); }
 
-    /* HUB DE JOGOS */
+    .btn-spin:hover:not(:disabled) {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 35px rgba(255, 183, 3, 0.7);
+    }
+
+    .btn-spin:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      filter: grayscale(0.8);
+    }
+
+    .spins-left-badge {
+      background: rgba(0, 240, 255, 0.1);
+      border: 1px solid var(--cyan);
+      color: var(--cyan);
+      padding: 14px 18px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1rem;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    /* Prize Modal */
+    .prize-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(14px);
+      z-index: 3000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .prize-modal-overlay.open {
+      display: flex;
+      animation: fadeIn 0.3s ease forwards;
+    }
+
+    .prize-modal-content {
+      background: var(--bg-surface);
+      border: 2px solid var(--neon-gold);
+      border-radius: var(--radius-lg);
+      padding: 40px 30px;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 0 60px rgba(255, 183, 3, 0.4);
+      position: relative;
+      transform: scale(0.9);
+      animation: scaleUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes scaleUp { to { transform: scale(1); } }
+
+    .modal-trophy-icon {
+      font-size: 4.2rem;
+      color: var(--neon-gold);
+      margin-bottom: 16px;
+      filter: drop-shadow(0 0 25px rgba(255, 183, 3, 0.7));
+      animation: bounce 1s infinite alternate;
+    }
+
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to { transform: translateY(-10px); }
+    }
+
+    .prize-modal-content h2 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .prize-result-name {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      color: var(--cyan);
+      background: rgba(0, 240, 255, 0.1);
+      border: 1px dashed var(--cyan);
+      padding: 14px;
+      border-radius: var(--radius-md);
+      margin: 20px 0;
+    }
+
+    .prize-modal-content p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+    }
+
+    .btn-claim {
+      background: linear-gradient(135deg, var(--neon-green), var(--cyan));
+      color: #000;
+      border: none;
+      padding: 14px 30px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.15rem;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0, 255, 136, 0.4);
+      transition: var(--transition);
+      width: 100%;
+    }
+
+    .btn-claim:hover {
+      box-shadow: 0 6px 30px rgba(0, 255, 136, 0.6);
+      transform: translateY(-2px);
+    }
+
+    /* Games & Platforms Section */
+    .games-section {
+      background: var(--bg-surface);
+    }
+
+    .filter-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--cyan);
+      color: #000;
+      border-color: transparent;
+      box-shadow: 0 0 15px var(--cyan-glow);
+    }
+
     .games-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 28px;
     }
 
     .game-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: var(--transition);
       display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: var(--text);
-      transition: 0.2s;
+      flex-direction: column;
+      position: relative;
     }
-    .game-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-    .game-icon {
-      font-size: 1.6rem;
-      color: var(--accent);
-      background: rgba(0, 210, 255, 0.1);
-      padding: 10px;
-      border-radius: 10px;
-    }
-    .game-info h4 { font-size: 0.9rem; }
-    .game-info span { font-size: 0.75rem; color: var(--text-muted); }
 
-    /* CÓDIGOS ROBLOX */
-    .code-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 14px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
+    .game-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--cyan);
+      box-shadow: 0 15px 35px rgba(0, 240, 255, 0.2);
     }
-    .code-name { font-weight: 700; color: var(--primary); font-size: 0.95rem; }
-    .code-game { font-size: 0.75rem; color: var(--text-muted); }
-    .btn-copy {
-      background: var(--primary);
-      color: #000;
-      border: none;
-      padding: 8px 14px;
-      border-radius: 8px;
+
+    .game-thumb {
+      height: 180px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding: 16px;
+    }
+
+    .game-thumb::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, var(--bg-surface-2) 0%, transparent 80%);
+    }
+
+    .game-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border-color);
+      color: var(--cyan);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+      font-family: var(--font-display);
       font-weight: 700;
-      cursor: pointer;
-      font-size: 0.8rem;
+      z-index: 2;
     }
 
-    /* ROLETA */
-    .roulette-box {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 20px;
-      text-align: center;
+    .game-body {
+      padding: 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--bg-surface-2);
     }
-    .roulette-display {
-      font-size: 1.2rem;
+
+    .game-body h3 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .game-body p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+
+    .game-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .game-tag-item {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    .game-action-btn {
+      width: 100%;
+      background: rgba(0, 240, 255, 0.08);
+      border: 1px solid rgba(0, 240, 255, 0.3);
+      color: var(--cyan);
+      text-decoration: none;
+      padding: 12px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-heading);
       font-weight: 800;
-      padding: 18px;
-      background: rgba(0,0,0,0.4);
-      border-radius: 12px;
-      margin-bottom: 14px;
-      color: var(--accent);
-      border: 1px dashed var(--accent);
-      min-height: 65px;
+      font-size: 1rem;
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-    .btn-spin {
-      background: linear-gradient(90deg, var(--secondary), #ff5500);
-      color: #fff;
-      border: none;
-      width: 100%;
-      padding: 14px;
-      border-radius: 12px;
-      font-weight: 800;
-      font-size: 1rem;
+      gap: 8px;
+      transition: var(--transition);
       cursor: pointer;
     }
 
-    /* CHATBOT */
-    .chat-btn-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: var(--primary);
+    .game-action-btn:hover {
+      background: var(--cyan);
       color: #000;
-      width: 58px;
-      height: 58px;
+      box-shadow: 0 0 20px var(--cyan-glow);
+    }
+
+    /* Social Media */
+    .social-section {
+      background: var(--bg-dark);
+    }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 22px;
+      margin-bottom: 50px;
+    }
+
+    .social-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 28px 20px;
+      text-decoration: none;
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .social-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      transition: var(--transition);
+    }
+
+    .social-card.youtube::before { background: #ff0000; }
+    .social-card.tiktok::before { background: #00f2fe; }
+    .social-card.instagram::before { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+    .social-card.kwai::before { background: #ff7700; }
+    .social-card.twitch::before { background: #9146ff; }
+    .social-card.discord::before { background: #5865f2; }
+
+    .social-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    }
+
+    .social-card.youtube:hover { border-color: rgba(255, 0, 0, 0.6); box-shadow: 0 15px 35px rgba(255, 0, 0, 0.25); }
+    .social-card.tiktok:hover { border-color: rgba(0, 242, 254, 0.6); box-shadow: 0 15px 35px rgba(0, 242, 254, 0.25); }
+    .social-card.instagram:hover { border-color: rgba(220, 39, 67, 0.6); box-shadow: 0 15px 35px rgba(220, 39, 67, 0.25); }
+    .social-card.kwai:hover { border-color: rgba(255, 119, 0, 0.6); box-shadow: 0 15px 35px rgba(255, 119, 0, 0.25); }
+    .social-card.twitch:hover { border-color: rgba(145, 70, 255, 0.6); box-shadow: 0 15px 35px rgba(145, 70, 255, 0.25); }
+    .social-card.discord:hover { border-color: rgba(88, 101, 242, 0.6); box-shadow: 0 15px 35px rgba(88, 101, 242, 0.25); }
+
+    .social-icon-box {
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
-      box-shadow: 0 5px 20px rgba(0, 255, 136, 0.4);
-      cursor: pointer;
-      z-index: 999;
-      border: none;
+      font-size: 1.8rem;
+      margin-bottom: 16px;
     }
 
-    .chat-window {
-      display: none;
-      position: fixed;
-      bottom: 90px;
-      right: 20px;
-      width: calc(100% - 40px);
-      max-width: 360px;
-      height: 420px;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-      flex-direction: column;
-      z-index: 999;
-      overflow: hidden;
+    .social-card.youtube .social-icon-box { background: rgba(255, 0, 0, 0.12); color: #ff0000; }
+    .social-card.tiktok .social-icon-box { background: rgba(0, 242, 254, 0.12); color: #00f2fe; }
+    .social-card.instagram .social-icon-box { background: rgba(220, 39, 67, 0.12); color: #e1306c; }
+    .social-card.kwai .social-icon-box { background: rgba(255, 119, 0, 0.12); color: #ff7700; }
+    .social-card.twitch .social-icon-box { background: rgba(145, 70, 255, 0.12); color: #9146ff; }
+    .social-card.discord .social-icon-box { background: rgba(88, 101, 242, 0.12); color: #5865f2; }
+
+    .social-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      margin-bottom: 4px;
     }
 
-    .chat-header {
-      background: #252836;
-      padding: 12px 16px;
+    .social-card .social-handle {
+      color: var(--cyan);
+      font-size: 0.85rem;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      margin-bottom: 10px;
+      word-break: break-all;
+    }
+
+    .social-card p {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      margin-bottom: 18px;
+      line-height: 1.4;
+    }
+
+    .social-btn-label {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Video Highlights / YouTube Showcase */
+    .video-showcase-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 34px;
+    }
+
+    .showcase-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-weight: 700;
-      font-size: 0.9rem;
+      margin-bottom: 26px;
+      flex-wrap: wrap;
+      gap: 16px;
     }
 
-    .chat-body {
+    .showcase-header h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+    }
+
+    .clips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .clip-item {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .clip-item:hover {
+      border-color: var(--magenta);
+      transform: scale(1.02);
+      box-shadow: 0 10px 30px rgba(247, 37, 133, 0.2);
+    }
+
+    .clip-thumb {
+      height: 170px;
+      background: #111422;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .clip-thumb i.fa-play {
+      font-size: 2.4rem;
+      color: #fff;
+      opacity: 0.85;
+      background: rgba(0, 0, 0, 0.6);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .clip-item:hover .clip-thumb i.fa-play {
+      transform: scale(1.15);
+      color: var(--cyan);
+      background: rgba(0, 0, 0, 0.85);
+    }
+
+    .clip-desc {
+      padding: 16px;
+    }
+
+    .clip-desc h4 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+    }
+
+    .clip-desc span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Floating Chatbot Widget */
+    .chatbot-toggle-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 66px;
+      height: 66px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--cyan), var(--purple), var(--magenta));
+      color: #000;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      cursor: pointer;
+      z-index: 2000;
+      box-shadow: 0 8px 35px var(--cyan-glow);
+      transition: var(--transition);
+    }
+
+    .chatbot-toggle-btn:hover {
+      transform: scale(1.1) rotate(10deg);
+      box-shadow: 0 10px 45px rgba(0, 240, 255, 0.7);
+    }
+
+    .chat-badge-ping {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 18px;
+      height: 18px;
+      background: var(--magenta);
+      border-radius: 50%;
+      border: 3px solid var(--bg-dark);
+      animation: pulse-dot 1.5s infinite;
+    }
+
+    .chatbot-window {
+      position: fixed;
+      bottom: 110px;
+      right: 30px;
+      width: 390px;
+      height: 560px;
+      max-width: calc(100vw - 40px);
+      max-height: calc(100vh - 140px);
+      background: var(--bg-surface);
+      border: 2px solid var(--cyan);
+      border-radius: var(--radius-lg);
+      display: none;
+      flex-direction: column;
+      z-index: 2000;
+      box-shadow: 0 20px 65px rgba(0, 0, 0, 0.85), 0 0 30px var(--cyan-glow);
+      backdrop-filter: blur(22px);
+      overflow: hidden;
+      animation: chatOpen 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    @keyframes chatOpen {
+      from { opacity: 0; transform: translateY(20px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .chatbot-window.open {
+      display: flex;
+    }
+
+    .chat-header {
+      background: linear-gradient(135deg, #181f33, #0e1220);
+      padding: 16px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .chat-bot-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .bot-avatar {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--cyan), var(--purple));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #000;
+      font-size: 1.2rem;
+      box-shadow: 0 0 12px var(--cyan-glow);
+    }
+
+    .bot-details h4 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    .bot-status {
+      font-size: 0.78rem;
+      color: var(--neon-green);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .chat-header-actions button {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 4px;
+      transition: var(--transition);
+    }
+
+    .chat-header-actions button:hover {
+      color: #fff;
+    }
+
+    .chat-messages {
       flex: 1;
-      padding: 14px;
+      padding: 16px;
       overflow-y: auto;
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      font-size: 0.85rem;
+      gap: 12px;
+      background: rgba(10, 13, 24, 0.75);
     }
 
-    .chat-msg {
+    .chat-bubble {
+      max-width: 82%;
+      padding: 12px 16px;
+      border-radius: var(--radius-md);
+      font-size: 0.92rem;
+      line-height: 1.45;
+      animation: messageFade 0.25s ease forwards;
+    }
+
+    @keyframes messageFade {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .chat-bubble.bot {
+      align-self: flex-start;
+      background: var(--bg-surface-2);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      border-bottom-left-radius: 2px;
+    }
+
+    .chat-bubble.user {
+      align-self: flex-end;
+      background: linear-gradient(135deg, var(--cyan), #00a6b2);
+      color: #000;
+      font-weight: 600;
+      border-bottom-right-radius: 2px;
+    }
+
+    .chat-quick-chips {
       padding: 8px 12px;
-      border-radius: 10px;
-      max-width: 80%;
-    }
-    .chat-msg.bot { background: rgba(255, 255, 255, 0.08); align-self: flex-start; }
-    .chat-msg.user { background: var(--primary); color: #000; align-self: flex-end; font-weight: 600; }
-
-    .chat-footer {
       display: flex;
-      padding: 10px;
       gap: 8px;
-      background: #14151a;
+      overflow-x: auto;
+      background: rgba(15, 19, 32, 0.95);
+      border-top: 1px solid var(--border-color);
     }
 
-    .chat-footer input {
+    .chat-chip {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-color);
+      color: var(--cyan);
+      font-size: 0.78rem;
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--transition);
+      font-family: var(--font-heading);
+      font-weight: 700;
+    }
+
+    .chat-chip:hover {
+      background: rgba(0, 240, 255, 0.18);
+      border-color: var(--cyan);
+    }
+
+    .chat-input-area {
+      padding: 12px;
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      gap: 8px;
+    }
+
+    .chat-input-area input {
       flex: 1;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 10px 14px;
       color: #fff;
+      font-size: 0.95rem;
       outline: none;
     }
 
-    .chat-footer button {
-      background: var(--primary);
+    .chat-input-area input:focus {
+      border-color: var(--cyan);
+    }
+
+    .chat-send-btn {
+      background: var(--cyan);
       border: none;
-      padding: 0 14px;
-      border-radius: 8px;
-      cursor: pointer;
       color: #000;
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      font-size: 1.1rem;
+    }
+
+    .chat-send-btn:hover {
+      box-shadow: 0 0 15px var(--cyan-glow);
+    }
+
+    /* Footer */
+    footer {
+      background: #040509;
+      border-top: 1px solid var(--border-color);
+      padding: 65px 0 30px 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 14px;
+      max-width: 340px;
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      margin-bottom: 16px;
+      color: #fff;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col ul a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .footer-col ul a:hover {
+      color: var(--cyan);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 992px) {
+      .hero-grid,
+      .wheel-wrapper {
+        grid-template-columns: 1fr;
+      }
+      .hero-headline {
+        font-size: 2.8rem;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+      .hero-headline {
+        font-size: 2.2rem;
+      }
+      .section-title {
+        font-size: 1.9rem;
+      }
+      .wheel-prizes-list {
+        grid-template-columns: 1fr;
+      }
+      .codes-results-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    
-    <!-- PERFIL / BOAS-VINDAS -->
-    <div class="profile-card">
-      <div class="avatar"><i class="fa-solid fa-gamepad"></i></div>
-      <h1 class="brand-title">RIAN BROTHER</h1>
-      <p class="brand-subtitle">Hub Gamer, Recompensas e Códigos Roblox</p>
-      <button class="btn-audio" onclick="playWelcomeAudio()">
-        <i class="fa-solid fa-volume-high"></i> Ouvir Boas-Vindas
+  <!-- Navigation Bar -->
+  <header>
+    <div class="container nav-container">
+      <a href="#inicio" class="brand-logo">
+        <div class="logo-icon">RB</div>
+        <div class="brand-text">
+          <span class="brand-title">RYAN BROTHER</span>
+          <span class="brand-tag">Gamer & Streamer Hub</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#inicio" class="active"><i class="fa-solid fa-house"></i> Início</a></li>
+        <li><a href="#codigos-roblox" class="highlight-nav"><i class="fa-solid fa-gift"></i> Códigos Roblox</a></li>
+        <li><a href="#roleta"><i class="fa-solid fa-arrows-spin"></i> Roleta</a></li>
+        <li><a href="#jogos"><i class="fa-solid fa-gamepad"></i> Jogos</a></li>
+        <li><a href="#redes"><i class="fa-solid fa-share-nodes"></i> Redes Sociais</a></li>
+        <li><a href="#videos"><i class="fa-solid fa-film"></i> Destaques</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Botão Instalar App -->
+        <button id="installAppNavBtn" class="btn-install-app" title="Instalar aplicativo no celular">
+          <i class="fa-solid fa-download"></i>
+          <span>Instalar App</span>
+        </button>
+
+        <!-- Botão Música de Fundo -->
+        <button id="bgMusicBtn" class="btn-bg-music" title="Ligar/Desligar Música de Fundo">
+          <i class="fa-solid fa-music"></i>
+          <span id="bgMusicText">Música: OFF</span>
+        </button>
+
+        <button id="audioToggleBtn" class="btn-audio-toggle" title="Ativar/Desativar Efeitos Sonoros">
+          <i class="fa-solid fa-volume-high"></i>
+          <span id="audioToggleText">Som: ON</span>
+        </button>
+
+        <div class="live-badge" title="Canal Ativo">
+          <span class="live-dot"></span>
+          <span>ONLINE</span>
+        </div>
+
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="inicio" class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="section-tag"><i class="fa-solid fa-bolt"></i> Bem-vindo ao QG Oficial</div>
+        <h1 class="hero-headline">
+          O Universo Gamer do <span class="highlight">Ryan Brother</span>
+        </h1>
+        <p class="hero-subtitle">
+          Códigos promocionais atualizados para Roblox (Xerife MM2, Blox Fruits, Adopt Me), Roleta de Prêmios diária, Warzone, Battlefield e transmissões ao vivo com a tropa!
+        </p>
+
+        <!-- Audio Welcome Message Card -->
+        <div class="audio-welcome-card">
+          <div class="audio-info">
+            <div class="audio-wave-anim">
+              <div class="audio-bar"></div>
+              <div class="audio-bar"></div>
+              <div class="audio-bar"></div>
+              <div class="audio-bar"></div>
+            </div>
+            <div class="audio-text">
+              <h4>Mensagem de Voz Oficial</h4>
+              <p>Ouça o áudio de boas-vindas do Ryan Brother</p>
+            </div>
+          </div>
+          <button id="playVoiceBtn" class="btn-play-voice">
+            <i class="fa-solid fa-play"></i> Ouvir Áudio
+          </button>
+        </div>
+
+        <div class="hero-cta-group">
+          <a href="#codigos-roblox" class="btn-primary">
+            <i class="fa-solid fa-key"></i> Pegar Códigos Roblox
+          </a>
+          <a href="#roleta" class="btn-secondary">
+            <i class="fa-solid fa-dice"></i> Girar Roleta da Sorte
+          </a>
+          <button id="installAppHeroBtn" class="btn-primary" style="background: linear-gradient(135deg, var(--neon-green), #00d2ff); box-shadow: 0 4px 25px var(--neon-green-glow);">
+            <i class="fa-solid fa-download"></i> Baixar / Instalar App
+          </button>
+          <button id="openChatHeroBtn" class="btn-secondary">
+            <i class="fa-solid fa-robot"></i> Falar com RyanBot
+          </button>
+        </div>
+      </div>
+
+      <!-- Hero Visual Streamer Card -->
+      <div class="hero-card-preview">
+        <div class="streamer-profile">
+          <div class="avatar-wrapper">
+            <div class="avatar-img">RB</div>
+            <div class="online-indicator" title="Streamer Online"></div>
+          </div>
+          <div class="streamer-info">
+            <h3>Ryan Brother</h3>
+            <p><i class="fa-solid fa-circle-check"></i> Criador & Gamer Verificado</p>
+          </div>
+        </div>
+
+        <div class="stream-status-box">
+          <div class="stream-meta-row">
+            <span class="stream-meta-label"><i class="fa-solid fa-cube"></i> Especialidade:</span>
+            <span class="stream-meta-val">Roblox Códigos & MM2 Xerife</span>
+          </div>
+          <div class="stream-meta-row">
+            <span class="stream-meta-label"><i class="fa-brands fa-youtube"></i> Canal YouTube:</span>
+            <span class="stream-meta-val" style="color: var(--cyan);">@ryanbrother6541</span>
+          </div>
+          <div class="stream-meta-row">
+            <span class="stream-meta-label"><i class="fa-brands fa-tiktok"></i> TikTok Oficial:</span>
+            <span class="stream-meta-val" style="color: var(--magenta);">@ryanbrothertube</span>
+          </div>
+          <div class="stream-meta-row">
+            <span class="stream-meta-label"><i class="fa-brands fa-instagram"></i> Instagram:</span>
+            <span class="stream-meta-val" style="color: var(--neon-gold);">@ryan_brotherbr</span>
+          </div>
+        </div>
+
+        <div class="stats-counters">
+          <div class="stat-box">
+            <span class="stat-num" id="spinCounter">100+</span>
+            <span class="stat-label">Códigos Ativos</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">5.4k+</span>
+            <span class="stat-label">Giros Roleta</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">Testado & Grátis</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROBLOX CODES & PROMO HUB SECTION -->
+  <section id="codigos-roblox" class="roblox-hub-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag"><i class="fa-solid fa-key"></i> Central de PromoCodes & Macetes</div>
+        <h2 class="section-title">Códigos Promocionais & Armas de Roblox</h2>
+        <p class="section-desc">
+          Digite o nome do jogo ou clique nos títulos mais famosos abaixo para desbloquear armas de Xerife no MM2, skins raras, pets lendários, boosts de XP e itens 100% gratuitos!
+        </p>
+      </div>
+
+      <!-- Roblox Official Redeem Banner -->
+      <div class="roblox-hub-banner">
+        <div class="roblox-banner-left">
+          <div class="roblox-logo-badge">
+            <i class="fa-solid fa-cube"></i>
+          </div>
+          <div class="roblox-banner-text">
+            <h3>Portal Oficial de Resgate Roblox</h3>
+            <p>Copie o código desejado abaixo e clique no botão para resgatar no site oficial do Roblox!</p>
+          </div>
+        </div>
+        <a href="https://www.roblox.com/redeem" target="_blank" rel="noopener noreferrer" class="btn-redeem-official">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir Roblox.com/Redeem
+        </a>
+      </div>
+
+      <!-- Search & Quick Game Filters Box -->
+      <div class="codes-search-box">
+        <div class="search-input-wrapper">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="robloxSearchInput" class="codes-search-input" placeholder="🔍 Digite o nome do jogo (ex: Xerife, MM2, Blox Fruits, Adopt Me, Brookhaven, Blade Ball...)" />
+        </div>
+
+        <div class="quick-games-selector">
+          <span class="quick-selector-label"><i class="fa-solid fa-fire"></i> Mais Populares:</span>
+          <button class="game-chip-btn active" data-game="all">Todos os Jogos</button>
+          <button class="game-chip-btn featured" data-game="mm2"><i class="fa-solid fa-gun"></i> MM2 / Xerife</button>
+          <button class="game-chip-btn featured" data-game="bloxfruits"><i class="fa-solid fa-wand-magic-sparkles"></i> Blox Fruits</button>
+          <button class="game-chip-btn" data-game="adoptme"><i class="fa-solid fa-paw"></i> Adopt Me!</button>
+          <button class="game-chip-btn" data-game="brookhaven"><i class="fa-solid fa-city"></i> Brookhaven RP</button>
+          <button class="game-chip-btn" data-game="bladeball"><i class="fa-solid fa-shield"></i> Blade Ball</button>
+          <button class="game-chip-btn" data-game="petsim"><i class="fa-solid fa-cat"></i> Pet Sim 99</button>
+        </div>
+      </div>
+
+      <!-- Codes Grid -->
+      <div class="codes-results-grid" id="codesContainer"></div>
+
+      <!-- Live Webhook Tracker -->
+      <div class="live-tracker-bar">
+        <div class="tracker-pulse">
+          <span class="live-dot" style="background-color: var(--neon-green);"></span>
+          <span>Rastreador de Códigos Ativo — Sincronizado com Criadores & YouTube</span>
+        </div>
+        <button id="generateSecretCodeBtn" class="btn-primary" style="padding: 10px 20px; font-size: 0.95rem;">
+          <i class="fa-solid fa-sparkles"></i> Gerar Código da Sorte de Hoje
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prize Wheel Section -->
+  <section id="roleta" class="wheel-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag"><i class="fa-solid fa-crown"></i> Sorte Diária</div>
+        <h2 class="section-title">Roleta de Prêmios do Ryan</h2>
+        <p class="section-desc">
+          Gire a roleta oficial do Ryan Brother todos os dias para ganhar coins, códigos de jogos, passes VIP no Discord e benefícios exclusivos!
+        </p>
+      </div>
+
+      <div class="wheel-wrapper">
+        <div class="wheel-stage">
+          <div class="wheel-outer-ring">
+            <div class="wheel-pointer"></div>
+            <canvas id="prizeWheelCanvas" width="380" height="380"></canvas>
+            <div class="wheel-center-hub" id="centerSpinHub">GIRAR</div>
+          </div>
+        </div>
+
+        <div class="wheel-controls">
+          <div class="wheel-card">
+            <h3><i class="fa-solid fa-gem"></i> Prêmios Disponíveis</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">
+              Cada giro garante uma recompensa especial para usar com a galera da live.
+            </p>
+
+            <ul class="wheel-prizes-list">
+              <li><i class="fa-solid fa-coins"></i> 1000 Brother Coins</li>
+              <li><i class="fa-solid fa-gun"></i> Arma Rara MM2 Xerife</li>
+              <li><i class="fa-brands fa-discord"></i> Passe VIP Discord</li>
+              <li><i class="fa-solid fa-rocket"></i> 2x Boost de XP</li>
+              <li><i class="fa-solid fa-bullhorn"></i> Salve na Próxima Live</li>
+              <li><i class="fa-solid fa-tags"></i> Cupom Gamer 20%</li>
+              <li><i class="fa-solid fa-star"></i> Cargo Exclusivo</li>
+              <li><i class="fa-solid fa-rotate"></i> Giro Grátis Extra</li>
+            </ul>
+
+            <div class="spin-action-row">
+              <button id="spinBtn" class="btn-spin">
+                <i class="fa-solid fa-dice"></i> GIRAR AGORA!
+              </button>
+              <div class="spins-left-badge" id="spinsLeftBadge">
+                Giros: <span id="spinsCount">3</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prize Modal -->
+  <div class="prize-modal-overlay" id="prizeModal">
+    <div class="prize-modal-content">
+      <i class="fa-solid fa-trophy modal-trophy-icon"></i>
+      <h2>PARABÉNS, BROTHER!</h2>
+      <p>Você acabou de girar a roleta e conquistou:</p>
+      
+      <div class="prize-result-name" id="prizeResultText">1000 Brother Coins</div>
+
+      <p>Tire um print ou resgate diretamente no Discord oficial ou na live do Ryan Brother!</p>
+      
+      <button id="claimPrizeBtn" class="btn-claim">
+        <i class="fa-solid fa-check"></i> RESGATAR RECOMPENSA
       </button>
     </div>
-
-    <!-- REDES SOCIAIS -->
-    <div>
-      <h3 class="section-title"><i class="fa-solid fa-share-nodes"></i> Nossas Redes</h3>
-      <div class="social-grid">
-        <a href="https://youtube.com" target="_blank" class="social-btn yt">
-          <i class="fa-brands fa-youtube"></i> YouTube
-        </a>
-        <a href="https://tiktok.com" target="_blank" class="social-btn tk">
-          <i class="fa-brands fa-tiktok"></i> TikTok
-        </a>
-        <a href="https://instagram.com" target="_blank" class="social-btn ig">
-          <i class="fa-brands fa-instagram"></i> Instagram
-        </a>
-      </div>
-    </div>
-
-    <!-- JOGOS ONLINE -->
-    <div>
-      <h3 class="section-title"><i class="fa-solid fa-dice"></i> Jogar Agora</h3>
-      <div class="games-grid">
-        <a href="https://www.roblox.com" target="_blank" class="game-card">
-          <i class="fa-solid fa-cube game-icon"></i>
-          <div class="game-info">
-            <h4>Roblox</h4>
-            <span>Jogar Online</span>
-          </div>
-        </a>
-        <a href="https://poki.com/pt" target="_blank" class="game-card">
-          <i class="fa-solid fa-ghost game-icon"></i>
-          <div class="game-info">
-            <h4>Poki Jogos</h4>
-            <span>+1000 Games</span>
-          </div>
-        </a>
-        <a href="https://www.crazygames.com.br" target="_blank" class="game-card">
-          <i class="fa-solid fa-fire game-icon"></i>
-          <div class="game-info">
-            <h4>CrazyGames</h4>
-            <span>Ação e Aventura</span>
-          </div>
-        </a>
-        <a href="https://www.clickjogos.com.br" target="_blank" class="game-card">
-          <i class="fa-solid fa-crosshairs game-icon"></i>
-          <div class="game-info">
-            <h4>Click Jogos</h4>
-            <span>Clássicos</span>
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <!-- CÓDIGOS ROBLOX -->
-    <div>
-      <h3 class="section-title"><i class="fa-solid fa-key"></i> Códigos Roblox Ativos</h3>
-      
-      <div class="code-card">
-        <div>
-          <div class="code-name">RIAN2026BOOST</div>
-          <div class="code-game">Blox Fruits - 2x XP (20 Min)</div>
-        </div>
-        <button class="btn-copy" onclick="copyCode('RIAN2026BOOST')">Copiar</button>
-      </div>
-
-      <div class="code-card">
-        <div>
-          <div class="code-name">SECRETBOX50</div>
-          <div class="code-game">Blade Ball - 50 Moedas Grátis</div>
-        </div>
-        <button class="btn-copy" onclick="copyCode('SECRETBOX50')">Copiar</button>
-      </div>
-
-      <div class="code-card">
-        <div>
-          <div class="code-name">BROTHERPOWER</div>
-          <div class="code-game">Anime Vanguards - Gemas Extras</div>
-        </div>
-        <button class="btn-copy" onclick="copyCode('BROTHERPOWER')">Copiar</button>
-      </div>
-    </div>
-
-    <!-- ROLETA DA SORTE -->
-    <div>
-      <h3 class="section-title"><i class="fa-solid fa-trophy"></i> Roleta da Sorte</h3>
-      <div class="roulette-box">
-        <div class="roulette-display" id="rouletteResult">Gire para ganhar prêmios!</div>
-        <button class="btn-spin" onclick="spinRoulette()">GIRAR ROLETA</button>
-      </div>
-    </div>
-
   </div>
 
-  <!-- CHATBOT BOTÃO E JANELA -->
-  <button class="chat-btn-float" onclick="toggleChat()">
-    <i class="fa-solid fa-robot"></i>
+  <!-- Games & Platforms Hub -->
+  <section id="jogos" class="games-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag"><i class="fa-solid fa-gamepad"></i> Arsenal & Comunidade</div>
+        <h2 class="section-title">Jogos, Plataformas & Dicas</h2>
+        <p class="section-desc">
+          Conecte-se aos principais títulos jogados pelo Ryan Brother, pegue dicas de configurações, loadouts e entre nas salas da comunidade.
+        </p>
+      </div>
+
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="roblox">Roblox & Aventura</button>
+        <button class="filter-btn" data-filter="fps">FPS & Tático</button>
+        <button class="filter-btn" data-filter="console">Xbox & Game Pass</button>
+        <button class="filter-btn" data-filter="store">Lojas & Parceiros</button>
+      </div>
+
+      <div class="games-grid">
+        <div class="game-card" data-category="roblox">
+          <div class="game-thumb" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80');">
+            <span class="game-badge"><i class="fa-solid fa-cube"></i> Comunidade Roblox</span>
+          </div>
+          <div class="game-body">
+            <div>
+              <h3>Roblox (MM2, Blox Fruits, Brookhaven)</h3>
+              <p>Salas com inscritos, macetes para conseguir armas de Xerife no MM2, frutas lendárias no Blox Fruits e eventos semanais.</p>
+              <div class="game-tags">
+                <span class="game-tag-item">MM2 Xerife</span>
+                <span class="game-tag-item">Blox Fruits</span>
+                <span class="game-tag-item">Códigos Grátis</span>
+              </div>
+            </div>
+            <a href="https://www.roblox.com" target="_blank" rel="noopener noreferrer" class="game-action-btn">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Jogar no Roblox
+            </a>
+          </div>
+        </div>
+
+        <div class="game-card" data-category="fps">
+          <div class="game-thumb" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80');">
+            <span class="game-badge"><i class="fa-solid fa-crosshairs"></i> Battle Royale</span>
+          </div>
+          <div class="game-body">
+            <div>
+              <h3>Call of Duty: Warzone</h3>
+              <p>Loadouts meta, gameplays insanas, posicionamento tático e squad fechado para rushar no Warzone.</p>
+              <div class="game-tags">
+                <span class="game-tag-item">FPS</span>
+                <span class="game-tag-item">Squad Meta</span>
+                <span class="game-tag-item">Táticas</span>
+              </div>
+            </div>
+            <a href="https://www.callofduty.com/warzone" target="_blank" rel="noopener noreferrer" class="game-action-btn">
+              <i class="fa-solid fa-crosshairs"></i> Ver Loadouts & Squad
+            </a>
+          </div>
+        </div>
+
+        <div class="game-card" data-category="fps">
+          <div class="game-thumb" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80');">
+            <span class="game-badge"><i class="fa-solid fa-shield-halved"></i> Guerra Total</span>
+          </div>
+          <div class="game-body">
+            <div>
+              <h3>Battlefield Series</h3>
+              <p>Combate em larga escala, pilotagem de veículos, operações táticas e configurações de controle de alta precisão.</p>
+              <div class="game-tags">
+                <span class="game-tag-item">Conquista</span>
+                <span class="game-tag-item">Xbox / PC</span>
+                <span class="game-tag-item">Operações</span>
+              </div>
+            </div>
+            <a href="https://www.ea.com/games/battlefield" target="_blank" rel="noopener noreferrer" class="game-action-btn">
+              <i class="fa-solid fa-shield-halved"></i> Dicas de Combate
+            </a>
+          </div>
+        </div>
+
+        <div class="game-card" data-category="console">
+          <div class="game-thumb" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1605901309584-818e25960a8f?auto=format&fit=crop&w=600&q=80');">
+            <span class="game-badge"><i class="fa-brands fa-xbox"></i> Catálogo Gamer</span>
+          </div>
+          <div class="game-body">
+            <div>
+              <h3>Xbox Game Pass Ultimate</h3>
+              <p>Centenas de jogos no Xbox Series S e PC, cloud gaming, novos lançamentos e recomendações diretas nas transmissões.</p>
+              <div class="game-tags">
+                <span class="game-tag-item">Xbox Series S</span>
+                <span class="game-tag-item">Cloud Gaming</span>
+                <span class="game-tag-item">Assinatura</span>
+              </div>
+            </div>
+            <a href="https://www.xbox.com/game-pass" target="_blank" rel="noopener noreferrer" class="game-action-btn">
+              <i class="fa-brands fa-xbox"></i> Explorar Catálogo
+            </a>
+          </div>
+        </div>
+
+        <div class="game-card" data-category="store">
+          <div class="game-thumb" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1612287233214-5f6e8731d167?auto=format&fit=crop&w=600&q=80');">
+            <span class="game-badge"><i class="fa-solid fa-store"></i> Parceiro Digital</span>
+          </div>
+          <div class="game-body">
+            <div>
+              <h3>SP Games Store</h3>
+              <p>Loja parceira confiável para compra de mídias digitais de Xbox, assinaturas, gift cards e jogos com pagamento rápido via Pix.</p>
+              <div class="game-tags">
+                <span class="game-tag-item">Jogos Digitais</span>
+                <span class="game-tag-item">Pix Instantâneo</span>
+                <span class="game-tag-item">Ofertas</span>
+              </div>
+            </div>
+            <a href="https://spgamesstore.com.br" target="_blank" rel="noopener noreferrer" class="game-action-btn">
+              <i class="fa-solid fa-cart-shopping"></i> Ver Ofertas Parceiras
+            </a>
+          </div>
+        </div>
+
+        <div class="game-card" data-category="roblox fps">
+          <div class="game-thumb" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80');">
+            <span class="game-badge"><i class="fa-brands fa-discord"></i> Comunidade Oficial</span>
+          </div>
+          <div class="game-body">
+            <div>
+              <h3>Discord do Ryan Brother</h3>
+              <p>Canais de voz para fechar squad em tempo real, avisos de novos códigos Roblox, suporte, sorteios e resgate de prêmios.</p>
+              <div class="game-tags">
+                <span class="game-tag-item">Canais de Voz</span>
+                <span class="game-tag-item">Aviso de Códigos</span>
+                <span class="game-tag-item">Squad Finder</span>
+              </div>
+            </div>
+            <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="game-action-btn">
+              <i class="fa-brands fa-discord"></i> Entrar no Discord
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Media Section -->
+  <section id="redes" class="social-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag"><i class="fa-solid fa-share-nodes"></i> Redes Oficiais</div>
+        <h2 class="section-title">Siga o Ryan Brother</h2>
+        <p class="section-desc">
+          Acompanhe todos os links e canais oficiais para receber notificações de novos códigos, vídeos e lives em primeira mão.
+        </p>
+      </div>
+
+      <div class="social-grid">
+        <a href="https://youtube.com/@ryanbrother6541?si=bmtUDBFLrtvTgqah" target="_blank" rel="noopener noreferrer" class="social-card youtube">
+          <div class="social-icon-box">
+            <i class="fa-brands fa-youtube"></i>
+          </div>
+          <h3>YouTube</h3>
+          <span class="social-handle">@ryanbrother6541</span>
+          <p>Vídeos de códigos Roblox, gameplays, tutoriais de armas e transmissões ao vivo.</p>
+          <span class="social-btn-label">Inscrever-se no Canal <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+
+        <a href="https://www.tiktok.com/@ryanbrothertube?_r=1&_t=ZS-98fYzIi9V0J" target="_blank" rel="noopener noreferrer" class="social-card tiktok">
+          <div class="social-icon-box">
+            <i class="fa-brands fa-tiktok"></i>
+          </div>
+          <h3>TikTok</h3>
+          <span class="social-handle">@ryanbrothertube</span>
+          <p>Cortes rápidos, códigos secretos de Roblox, jogadas insanas e desafios do squad.</p>
+          <span class="social-btn-label">Seguir no TikTok <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+
+        <a href="https://www.instagram.com/ryan_brotherbr?igsh=NzJsdGgxNXdlbGN4" target="_blank" rel="noopener noreferrer" class="social-card instagram">
+          <div class="social-icon-box">
+            <i class="fa-brands fa-instagram"></i>
+          </div>
+          <h3>Instagram</h3>
+          <span class="social-handle">@ryan_brotherbr</span>
+          <p>Bastidores, avisos de lives surpresa, stories diários e fotos exclusivas da tropa.</p>
+          <span class="social-btn-label">Seguir no Instagram <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+
+        <a href="https://kwai.com/@ryanbrother" target="_blank" rel="noopener noreferrer" class="social-card kwai">
+          <div class="social-icon-box">
+            <i class="fa-solid fa-video"></i>
+          </div>
+          <h3>Kwai</h3>
+          <span class="social-handle">@ryanbrother</span>
+          <p>Vídeos diários, desafios com inscritos, reacts e conteúdos especiais.</p>
+          <span class="social-btn-label">Acompanhar no Kwai <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+
+        <a href="https://www.twitch.tv/ryanbrother" target="_blank" rel="noopener noreferrer" class="social-card twitch">
+          <div class="social-icon-box">
+            <i class="fa-brands fa-twitch"></i>
+          </div>
+          <h3>Twitch</h3>
+          <span class="social-handle">/ryanbrother</span>
+          <p>Lives diárias, gameplay jogando com os inscritos no Roblox e resgate de recompensas ao vivo.</p>
+          <span class="social-btn-label">Assistir na Twitch <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+      </div>
+
+      <!-- Highlights & YouTube Videos -->
+      <div class="video-showcase-box" id="videos">
+        <div class="showcase-header">
+          <div>
+            <h3><i class="fa-brands fa-youtube" style="color: #ff0000;"></i> Vídeos em Destaque do YouTube</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Assista aos melhores vídeos e tutoriais do canal <strong>@ryanbrother6541</strong>.</p>
+          </div>
+          <a href="https://youtube.com/@ryanbrother6541?si=bmtUDBFLrtvTgqah" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 10px 20px; font-size: 0.95rem;">
+            <i class="fa-brands fa-youtube"></i> Acessar Canal do YouTube
+          </a>
+        </div>
+
+        <div class="clips-grid">
+          <a href="https://youtube.com/@ryanbrother6541?si=bmtUDBFLrtvTgqah" target="_blank" rel="noopener noreferrer" class="clip-item">
+            <div class="clip-thumb" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80');">
+              <i class="fa-solid fa-play"></i>
+            </div>
+            <div class="clip-desc">
+              <h4>🔥 COMO PEGAR TODAS AS ARMAS DE XERIFE NO ROBLOX MM2</h4>
+              <span>YouTube • Ryan Brother • Tutorial Completo de Códigos</span>
+            </div>
+          </a>
+
+          <a href="https://youtube.com/@ryanbrother6541?si=bmtUDBFLrtvTgqah" target="_blank" rel="noopener noreferrer" class="clip-item">
+            <div class="clip-thumb" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80');">
+              <i class="fa-solid fa-play"></i>
+            </div>
+            <div class="clip-desc">
+              <h4>🚀 OS MELHORES CÓDIGOS DE BLOX FRUITS & ADOPT ME ATUALIZADOS</h4>
+              <span>YouTube • Ryan Brother • Resgate Grátis de Recompensas</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating Chatbot Widget ("RyanBot") -->
+  <button id="chatbotToggleBtn" class="chatbot-toggle-btn" aria-label="Abrir Assistente RyanBot">
+    <i class="fa-solid fa-headset"></i>
+    <span class="chat-badge-ping"></span>
   </button>
 
-  <div class="chat-window" id="chatWindow">
+  <div id="chatbotWindow" class="chatbot-window">
     <div class="chat-header">
-      <span>🤖 RianBot Kids</span>
-      <i class="fa-solid fa-xmark" style="cursor:pointer;" onclick="toggleChat()"></i>
+      <div class="chat-bot-info">
+        <div class="bot-avatar">
+          <i class="fa-solid fa-robot"></i>
+        </div>
+        <div class="bot-details">
+          <h4>RyanBot Oficial</h4>
+          <span class="bot-status"><i class="fa-solid fa-circle" style="font-size: 8px;"></i> Assistente Ativo</span>
+        </div>
+      </div>
+      <div class="chat-header-actions">
+        <button id="closeChatBtn" aria-label="Fechar Chat"><i class="fa-solid fa-xmark"></i></button>
+      </div>
     </div>
-    <div class="chat-body" id="chatBody">
-      <div class="chat-msg bot">Oi, amiguinho! Bem-vindo ao Rian Brother! Como posso te ajudar? Digite "códigos", "jogos" ou "roleta"!</div>
+
+    <div id="chatMessages" class="chat-messages">
+      <div class="chat-bubble bot">
+        E aí, Brother! 🎮 Eu sou o <strong>RyanBot</strong>, o assistente oficial do <strong>Ryan Brother</strong>. Quer códigos de Roblox, saber sobre a roleta ou ver nossas redes? Só pedir!
+      </div>
     </div>
-    <div class="chat-footer">
-      <input type="text" id="chatInput" placeholder="Pergunte algo..." onkeypress="handleChatKey(event)">
-      <button onclick="sendMsg()"><i class="fa-solid fa-paper-plane"></i></button>
+
+    <div class="chat-quick-chips">
+      <span class="chat-chip" onclick="sendQuickMessage('Códigos do MM2 Xerife')">🔫 Códigos MM2 Xerife</span>
+      <span class="chat-chip" onclick="sendQuickMessage('Códigos de Blox Fruits')">🍎 Códigos Blox Fruits</span>
+      <span class="chat-chip" onclick="sendQuickMessage('Como resgatar códigos?')">🎟️ Como Resgatar?</span>
+      <span class="chat-chip" onclick="sendQuickMessage('Links das redes sociais')">🌐 Redes do Ryan</span>
+      <span class="chat-chip" onclick="sendQuickMessage('Quando tem live?')">🔴 Horário das Lives</span>
+    </div>
+
+    <div class="chat-input-area">
+      <input type="text" id="chatInput" placeholder="Digite sua pergunta..." />
+      <button id="chatSendBtn" class="chat-send-btn" aria-label="Enviar Mensagem">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
     </div>
   </div>
 
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#inicio" class="brand-logo">
+          <div class="logo-icon">RB</div>
+          <div class="brand-text">
+            <span class="brand-title">RYAN BROTHER</span>
+            <span class="brand-tag">Gamer & Streamer</span>
+          </div>
+        </a>
+        <p>
+          O ponto de encontro oficial para fãs, streamers e gamers de Roblox (MM2, Blox Fruits, Adopt Me), Warzone, Battlefield e Xbox. Pegue códigos grátis e faça parte da tropa!
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#codigos-roblox">Códigos Roblox</a></li>
+          <li><a href="#roleta">Roleta da Sorte</a></li>
+          <li><a href="#jogos">Jogos & Plataformas</a></li>
+          <li><a href="#redes">Redes Oficiais</a></li>
+          <li><a href="#videos">Vídeos em Destaque</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Redes do Ryan</h4>
+        <ul>
+          <li><a href="https://youtube.com/@ryanbrother6541?si=bmtUDBFLrtvTgqah" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i> YouTube</a></li>
+          <li><a href="https://www.tiktok.com/@ryanbrothertube?_r=1&_t=ZS-98fYzIi9V0J" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-tiktok"></i> TikTok</a></li>
+          <li><a href="https://www.instagram.com/ryan_brotherbr?igsh=NzJsdGgxNXdlbGN4" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+          <li><a href="https://kwai.com/@ryanbrother" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-video"></i> Kwai</a></li>
+          <li><a href="https://www.twitch.tv/ryanbrother" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitch"></i> Twitch</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Comunidade</h4>
+        <ul>
+          <li><a href="https://discord.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-discord"></i> Discord Oficial</a></li>
+          <li><a href="https://www.roblox.com" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-cube"></i> Grupo Roblox</a></li>
+          <li><a href="https://spgamesstore.com.br" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-store"></i> SP Games Store</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© 2026 Ryan Brother. Todos os direitos reservados. Feito com paixão para a comunidade gamer e fãs de Roblox!</p>
+    </div>
+  </footer>
+
   <script>
-    // Áudio de Boas-Vindas nativo (Voz em Português)
-    function playWelcomeAudio() {
-      if ('speechSynthesis' in window) {
-        const text = "Seja bem-vindo ao Rian Brother! Aproveite todos os jogos e códigos!";
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = 'pt-BR';
-        utterance.rate = 1.0;
-        window.speechSynthesis.speak(utterance);
+    /* =======================================================
+       1. SISTEMA DE INSTALAÇÃO DO APP (PWA / SHORTCUT)
+       ======================================================= */
+    let deferredPrompt = null;
+    const installNavBtn = document.getElementById('installAppNavBtn');
+    const installHeroBtn = document.getElementById('installAppHeroBtn');
+
+    // Injeta o Web App Manifest dinamicamente
+    const pwaManifest = {
+      name: "Ryan Brother Oficial",
+      short_name: "RyanBrother",
+      start_url: "./",
+      display: "standalone",
+      background_color: "#07080f",
+      theme_color: "#090a10",
+      description: "Hub Oficial de Games, Códigos Roblox e Roleta do Ryan Brother",
+      icons: [
+        {
+          src: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=192&h=192&q=80",
+          sizes: "192x192",
+          type: "image/png"
+        },
+        {
+          src: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=512&h=512&q=80",
+          sizes: "512x512",
+          type: "image/png"
+        }
+      ]
+    };
+    const stringManifest = JSON.stringify(pwaManifest);
+    const blob = new Blob([stringManifest], { type: 'application/json' });
+    const manifestURL = URL.createObjectURL(blob);
+    const manifestLink = document.createElement('link');
+    manifestLink.rel = 'manifest';
+    manifestLink.href = manifestURL;
+    document.head.appendChild(manifestLink);
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      if (installNavBtn) installNavBtn.style.display = 'inline-flex';
+    });
+
+    async function triggerInstallApp() {
+      playClickSound();
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') {
+          alert('🎮 Parabéns! O app do Ryan Brother foi instalado no seu dispositivo!');
+        }
+        deferredPrompt = null;
       } else {
-        alert("Bem-vindo ao Rian Brother!");
+        alert('📲 Para instalar o App do Ryan Brother:\n\n1. No Chrome: Toque nos 3 pontinhos (⋮) no topo do navegador e selecione "Adicionar à tela inicial" ou "Instalar aplicativo".\n2. No iPhone (Safari): Toque no botão Compartilhar e selecione "Adicionar à Tela de Início".');
       }
     }
 
-    // Copiar Códigos
-    function copyCode(code) {
-      navigator.clipboard.writeText(code).then(() => {
-        alert("Código " + code + " copiado com sucesso!");
+    if (installNavBtn) installNavBtn.addEventListener('click', triggerInstallApp);
+    if (installHeroBtn) installHeroBtn.addEventListener('click', triggerInstallApp);
+
+    /* =======================================================
+       2. MÚSICA DE FUNDO GAMER (SINTETIZADA / WEB AUDIO)
+       ======================================================= */
+    let audioContext = null;
+    let isSoundEnabled = true;
+    let isBgMusicPlaying = false;
+    let bgMusicInterval = null;
+    const bgMusicBtn = document.getElementById('bgMusicBtn');
+    const bgMusicText = document.getElementById('bgMusicText');
+
+    function getAudioContext() {
+      if (!audioContext) {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (AudioCtx) audioContext = new AudioCtx();
+      }
+      if (audioContext && audioContext.state === 'suspended') {
+        audioContext.resume();
+      }
+      return audioContext;
+    }
+
+    // Melodia relaxante ambiente estilo synthwave gamer
+    const melodyNotes = [261.63, 329.63, 392.00, 523.25, 440.00, 349.23, 392.00, 293.66];
+    let melodyIndex = 0;
+
+    function playSynthBeat() {
+      if (!isBgMusicPlaying) return;
+      try {
+        const ctx = getAudioContext();
+        if (!ctx) return;
+        const now = ctx.currentTime;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        const freq = melodyNotes[melodyIndex % melodyNotes.length];
+        melodyIndex++;
+
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(freq, now);
+
+        gain.gain.setValueAtTime(0.04, now);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.65);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(now);
+        osc.stop(now + 0.65);
+      } catch (e) {}
+    }
+
+    function toggleBgMusic() {
+      getAudioContext();
+      isBgMusicPlaying = !isBgMusicPlaying;
+      if (isBgMusicPlaying) {
+        bgMusicBtn.classList.add('playing');
+        bgMusicText.textContent = 'Música: ON 🎵';
+        playSynthBeat();
+        bgMusicInterval = setInterval(playSynthBeat, 700);
+      } else {
+        bgMusicBtn.classList.remove('playing');
+        bgMusicText.textContent = 'Música: OFF';
+        if (bgMusicInterval) clearInterval(bgMusicInterval);
+      }
+    }
+
+    bgMusicBtn.addEventListener('click', toggleBgMusic);
+
+    /* =======================================================
+       3. EFEITOS SONOROS DE CLIQUE & ROLETA
+       ======================================================= */
+    function playClickSound() {
+      if (!isSoundEnabled) return;
+      try {
+        const ctx = getAudioContext();
+        if (!ctx) return;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(800, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(400, ctx.currentTime + 0.05);
+        gain.gain.setValueAtTime(0.15, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.05);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.05);
+      } catch (e) {}
+    }
+
+    function playTickSound() {
+      if (!isSoundEnabled) return;
+      try {
+        const ctx = getAudioContext();
+        if (!ctx) return;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(1200, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(600, ctx.currentTime + 0.03);
+        gain.gain.setValueAtTime(0.1, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.03);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.03);
+      } catch (e) {}
+    }
+
+    function playWinSound() {
+      if (!isSoundEnabled) return;
+      try {
+        const ctx = getAudioContext();
+        if (!ctx) return;
+        const notes = [523.25, 659.25, 783.99, 1046.50];
+        notes.forEach((freq, index) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'square';
+          osc.frequency.setValueAtTime(freq, ctx.currentTime + index * 0.1);
+          gain.gain.setValueAtTime(0.12, ctx.currentTime + index * 0.1);
+          gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + index * 0.1 + 0.25);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(ctx.currentTime + index * 0.1);
+          osc.stop(ctx.currentTime + index * 0.1 + 0.25);
+        });
+      } catch (e) {}
+    }
+
+    const audioToggleBtn = document.getElementById('audioToggleBtn');
+    audioToggleBtn.addEventListener('click', () => {
+      isSoundEnabled = !isSoundEnabled;
+      if (isSoundEnabled) {
+        audioToggleBtn.classList.remove('muted');
+        audioToggleBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i> <span>Som: ON</span>';
+        playClickSound();
+      } else {
+        audioToggleBtn.classList.add('muted');
+        audioToggleBtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i> <span>Som: OFF</span>';
+        if (window.speechSynthesis) window.speechSynthesis.cancel();
+      }
+    });
+
+    const playVoiceBtn = document.getElementById('playVoiceBtn');
+    let isSpeaking = false;
+
+    playVoiceBtn.addEventListener('click', () => {
+      getAudioContext();
+      playClickSound();
+
+      if ('speechSynthesis' in window) {
+        if (isSpeaking) {
+          window.speechSynthesis.cancel();
+          isSpeaking = false;
+          playVoiceBtn.innerHTML = '<i class="fa-solid fa-play"></i> Ouvir Áudio';
+          return;
+        }
+
+        const welcomeText = "Fala galera, beleza? Sejam muito bem-vindos ao portal oficial do Ryan Brother! Aqui você encontra códigos promocionais atualizados para Roblox, armas de Xerife no MM2, Blox Fruits, Adopt Me, gira nossa roleta de prêmios diária e confere nossos vídeos e lives no YouTube, TikTok e Instagram. Aproveite e pegue todos os códigos!";
+        const utterance = new SpeechSynthesisUtterance(welcomeText);
+        utterance.lang = 'pt-BR';
+        utterance.rate = 1.05;
+        utterance.pitch = 1.0;
+
+        const voices = window.speechSynthesis.getVoices();
+        const ptVoice = voices.find(v => v.lang.includes('pt') || v.lang.includes('BR'));
+        if (ptVoice) utterance.voice = ptVoice;
+
+        utterance.onstart = () => {
+          isSpeaking = true;
+          playVoiceBtn.innerHTML = '<i class="fa-solid fa-stop"></i> Parar Áudio';
+        };
+
+        utterance.onend = () => {
+          isSpeaking = false;
+          playVoiceBtn.innerHTML = '<i class="fa-solid fa-play"></i> Ouvir Áudio';
+        };
+
+        utterance.onerror = () => {
+          isSpeaking = false;
+          playVoiceBtn.innerHTML = '<i class="fa-solid fa-play"></i> Ouvir Áudio';
+        };
+
+        window.speechSynthesis.speak(utterance);
+      } else {
+        alert('Seu navegador não suporta síntese de voz, mas seja muito bem-vindo ao portal do Ryan Brother!');
+      }
+    });
+
+    /* =======================================================
+       4. BANCO DE CÓDIGOS ROBLOX
+       ======================================================= */
+    const robloxCodesDB = [
+      { gameId: 'mm2', gameName: 'Murder Mystery 2 (MM2 / Xerife)', category: 'Arma de Xerife & Faca', code: 'COMB4T2', reward: 'Arma de Xerife Combat II Grátis + Skin Exclusiva', status: 'ATIVO HOJE' },
+      { gameId: 'mm2', gameName: 'Murder Mystery 2 (MM2 / Xerife)', category: 'Arma & Efeito', code: 'PR1SM', reward: 'Faca Prismática Rara + Efeito de Disparo do Xerife', status: 'ATIVO HOJE' },
+      { gameId: 'mm2', gameName: 'Murder Mystery 2 (MM2 / Xerife)', category: 'Cosmético', code: 'SK00L', reward: 'Arma Skool Especial do Xerife', status: 'ATIVO HOJE' },
+      { gameId: 'bloxfruits', gameName: 'Blox Fruits', category: 'Reset & Boost', code: 'SUB2GAMERROBOT_RESET1', reward: 'Reset Completo de Status (Stats Reset Grátis)', status: 'ATIVO HOJE' },
+      { gameId: 'bloxfruits', gameName: 'Blox Fruits', category: '2x XP Boost', code: 'KITT_GAMING', reward: '20 Minutos de XP em Dobro (2x Exp Boost)', status: 'ATIVO HOJE' },
+      { gameId: 'bloxfruits', gameName: 'Blox Fruits', category: 'Beli / Moedas', code: 'FUDD10_V2', reward: '2 Beli + Título Oficial Secreto', status: 'ATIVO HOJE' },
+      { gameId: 'adoptme', gameName: 'Adopt Me!', category: 'Pet & Moedas', code: 'SUMMER_PETS2026', reward: '750 Bucks + Ovo de Pet Raro', status: 'ATIVO HOJE' },
+      { gameId: 'brookhaven', gameName: 'Brookhaven RP', category: 'Veículo & Casa', code: 'BROOK_VIP26', reward: 'Acesso a Carro Esportivo + Skin de Casa VIP', status: 'ATIVO HOJE' },
+      { gameId: 'bladeball', gameName: 'Blade Ball', category: 'Espada & Giros', code: 'SPIN_SWORD26', reward: '10 Giros de Roleta + Espada Elemental', status: 'ATIVO HOJE' },
+      { gameId: 'petsim', gameName: 'Pet Simulator 99', category: 'Diamantes', code: 'DIAMOND_BOOST99', reward: '50.000 Diamantes + Poção de Sorte', status: 'ATIVO HOJE' }
+    ];
+
+    const codesContainer = document.getElementById('codesContainer');
+    const robloxSearchInput = document.getElementById('robloxSearchInput');
+    const gameChipBtns = document.querySelectorAll('.game-chip-btn');
+    const generateSecretCodeBtn = document.getElementById('generateSecretCodeBtn');
+
+    function renderCodes(filterGame = 'all', searchQuery = '') {
+      codesContainer.innerHTML = '';
+      const query = searchQuery.trim().toLowerCase();
+
+      const filtered = robloxCodesDB.filter(item => {
+        const matchesCategory = (filterGame === 'all') || (item.gameId === filterGame);
+        const matchesSearch = !query || 
+          item.gameName.toLowerCase().includes(query) ||
+          item.reward.toLowerCase().includes(query) ||
+          item.code.toLowerCase().includes(query) ||
+          item.category.toLowerCase().includes(query);
+        return matchesCategory && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        codesContainer.innerHTML = `
+          <div style="grid-column: 1/-1; text-align: center; padding: 40px; background: rgba(255,255,255,0.03); border-radius: var(--radius-md); border: 1px dashed var(--border-color);">
+            <i class="fa-solid fa-face-sad-tear" style="font-size: 3rem; color: var(--neon-gold); margin-bottom: 12px;"></i>
+            <h3>Nenhum código encontrado para "${searchQuery}"</h3>
+            <p style="color: var(--text-muted); margin-top: 6px;">Tente pesquisar por Xerife, MM2, Blox Fruits, Adopt Me ou clique em um dos jogos populares acima!</p>
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach(item => {
+        const card = document.createElement('div');
+        card.classList.add('code-card');
+        card.innerHTML = `
+          <div>
+            <div class="code-card-header">
+              <h4 class="code-game-title">${item.gameName}</h4>
+              <span class="code-status-tag"><i class="fa-solid fa-circle-check"></i> ${item.status}</span>
+            </div>
+            <p class="code-reward-desc"><strong style="color: var(--cyan);">${item.category}:</strong> ${item.reward}</p>
+          </div>
+          <div class="code-copy-box">
+            <span class="code-string">${item.code}</span>
+            <button class="btn-copy-code" onclick="copyCodeText('${item.code}', this)">
+              <i class="fa-regular fa-copy"></i> COPIAR
+            </button>
+          </div>
+        `;
+        codesContainer.appendChild(card);
       });
     }
 
-    // Roleta
+    renderCodes();
+
+    window.copyCodeText = function(code, btnElement) {
+      playClickSound();
+      navigator.clipboard.writeText(code).then(() => {
+        const originalText = btnElement.innerHTML;
+        btnElement.innerHTML = '<i class="fa-solid fa-check"></i> COPIADO!';
+        btnElement.style.background = 'var(--neon-green)';
+        btnElement.style.color = '#000';
+        
+        if (typeof confetti === 'function') {
+          confetti({ particleCount: 50, spread: 50, origin: { y: 0.7 } });
+        }
+
+        setTimeout(() => {
+          btnElement.innerHTML = originalText;
+          btnElement.style.background = 'var(--cyan)';
+          btnElement.style.color = '#000';
+        }, 2000);
+      });
+    };
+
+    robloxSearchInput.addEventListener('input', (e) => {
+      const activeChip = document.querySelector('.game-chip-btn.active');
+      const category = activeChip ? activeChip.getAttribute('data-game') : 'all';
+      renderCodes(category, e.target.value);
+    });
+
+    gameChipBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        playClickSound();
+        gameChipBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const game = btn.getAttribute('data-game');
+        renderCodes(game, robloxSearchInput.value);
+      });
+    });
+
+    generateSecretCodeBtn.addEventListener('click', () => {
+      playWinSound();
+      const secretCodes = [
+        { name: 'Xerife MM2', code: 'RYAN_XERIFE2026', reward: 'Skin Dourada de Pistola de Xerife' },
+        { name: 'Blox Fruits', code: 'RYAN_FRUIT_2X', reward: '30 Minutos de XP Duplo Secreto' },
+        { name: 'Roblox Geral', code: 'BROTHER_PROMO_VIP', reward: 'Item Cosmético de Ombro Grátis' }
+      ];
+      const randomSecret = secretCodes[Math.floor(Math.random() * secretCodes.length)];
+      
+      robloxCodesDB.unshift({
+        gameId: 'mm2',
+        gameName: `🌟 Especial Ryan Brother: ${randomSecret.name}`,
+        category: 'Código da Sorte',
+        code: randomSecret.code,
+        reward: randomSecret.reward,
+        status: 'DESBLOQUEADO AGORA'
+      });
+
+      renderCodes();
+
+      if (typeof confetti === 'function') {
+        confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } });
+      }
+
+      alert(`🎉 Parabéns! Você gerou o código exclusivo:\n\n[ ${randomSecret.code} ]\nRecompensa: ${randomSecret.reward}\n\nEle foi adicionado no topo da lista!`);
+    });
+
+    /* =======================================================
+       5. ROLETA DA SORTE
+       ======================================================= */
+    const canvas = document.getElementById('prizeWheelCanvas');
+    const ctx = canvas.getContext('2d');
+    const spinBtn = document.getElementById('spinBtn');
+    const centerSpinHub = document.getElementById('centerSpinHub');
+    const prizeModal = document.getElementById('prizeModal');
+    const prizeResultText = document.getElementById('prizeResultText');
+    const claimPrizeBtn = document.getElementById('claimPrizeBtn');
+    const spinsCountSpan = document.getElementById('spinsCount');
+
+    let availableSpins = 3;
+    let isSpinning = false;
+    let currentAngle = 0;
+
     const prizes = [
-      "🔥 +50 Moedas no Game",
-      "🎁 Código Secreto Liberado",
-      "⚡ +20 Minutos de 2x XP",
-      "📦 Caixa Mística Roblox",
-      "💎 100 Gemas Bônus"
+      { name: '1000 Brother Coins', color: '#161b2b', textColor: '#00f0ff', icon: '💎' },
+      { name: 'Arma Xerife MM2', color: '#9d4edd', textColor: '#ffffff', icon: '🔫' },
+      { name: 'Passe VIP Discord', color: '#111524', textColor: '#ffb703', icon: '🎟️' },
+      { name: '2x Boost de XP', color: '#00f0ff', textColor: '#000000', icon: '🚀' },
+      { name: 'Salve na Live', color: '#f72585', textColor: '#ffffff', icon: '📢' },
+      { name: 'Cupom Gamer 20%', color: '#1a2238', textColor: '#00ff88', icon: '🍕' },
+      { name: 'Cargo Exclusivo', color: '#ffb703', textColor: '#000000', icon: '🌟' },
+      { name: 'Giro Grátis Extra', color: '#240046', textColor: '#ffffff', icon: '🔄' }
     ];
 
-    function spinRoulette() {
-      const display = document.getElementById('rouletteResult');
-      let count = 0;
-      const interval = setInterval(() => {
-        display.innerText = prizes[Math.floor(Math.random() * prizes.length)];
-        count++;
-        if (count > 12) {
-          clearInterval(interval);
-          const finalPrize = prizes[Math.floor(Math.random() * prizes.length)];
-          display.innerHTML = "🎉 <b>Ganhou:</b> " + finalPrize;
+    const numSegments = prizes.length;
+    const arcSize = (2 * Math.PI) / numSegments;
+
+    function drawWheel() {
+      const centerX = canvas.width / 2;
+      const centerY = canvas.height / 2;
+      const radius = canvas.width / 2 - 10;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (let i = 0; i < numSegments; i++) {
+        const angle = currentAngle + i * arcSize;
+
+        ctx.beginPath();
+        ctx.fillStyle = prizes[i].color;
+        ctx.moveTo(centerX, centerY);
+        ctx.arc(centerX, centerY, radius, angle, angle + arcSize);
+        ctx.lineTo(centerX, centerY);
+        ctx.fill();
+
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        ctx.save();
+        ctx.translate(centerX, centerY);
+        ctx.rotate(angle + arcSize / 2);
+        ctx.textAlign = 'right';
+        ctx.fillStyle = prizes[i].textColor;
+        ctx.font = 'bold 12px Orbitron, sans-serif';
+
+        const displayText = `${prizes[i].icon} ${prizes[i].name}`;
+        ctx.fillText(displayText, radius - 20, 5);
+        ctx.restore();
+      }
+
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+      ctx.strokeStyle = 'rgba(0, 240, 255, 0.6)';
+      ctx.lineWidth = 4;
+      ctx.stroke();
+    }
+
+    drawWheel();
+
+    function spinWheel() {
+      if (isSpinning) return;
+      if (availableSpins <= 0) {
+        alert('Seus giros diários acabaram! Volte amanhã ou pegue mais giros com o Ryan Brother no Discord!');
+        return;
+      }
+
+      getAudioContext();
+      isSpinning = true;
+      spinBtn.disabled = true;
+      availableSpins--;
+      spinsCountSpan.textContent = availableSpins;
+
+      const prizeIndex = Math.floor(Math.random() * numSegments);
+      const extraSpins = (5 + Math.floor(Math.random() * 3)) * 2 * Math.PI;
+      const segmentAngle = arcSize;
+      const targetSegmentOffset = (numSegments - prizeIndex) * segmentAngle - segmentAngle / 2;
+      const targetAngle = currentAngle + extraSpins + (targetSegmentOffset - (currentAngle % (2 * Math.PI)));
+
+      const duration = 4500;
+      const startTime = performance.now();
+      const startAngle = currentAngle;
+      let lastTickAngle = startAngle;
+
+      function animateSpin(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeOut = 1 - Math.pow(1 - progress, 4);
+
+        currentAngle = startAngle + (targetAngle - startAngle) * easeOut;
+        drawWheel();
+
+        if (Math.abs(currentAngle - lastTickAngle) >= arcSize / 2) {
+          playTickSound();
+          lastTickAngle = currentAngle;
         }
-      }, 100);
-    }
 
-    // Chatbot Lógica
-    function toggleChat() {
-      const win = document.getElementById('chatWindow');
-      win.style.display = (win.style.display === 'flex') ? 'none' : 'flex';
-    }
-
-    function handleChatKey(e) {
-      if (e.key === 'Enter') sendMsg();
-    }
-
-    function sendMsg() {
-      const input = document.getElementById('chatInput');
-      const text = input.value.trim().toLowerCase();
-      if (!text) return;
-
-      const chatBody = document.getElementById('chatBody');
-
-      // Msg Usuário
-      const userDiv = document.createElement('div');
-      userDiv.className = 'chat-msg user';
-      userDiv.innerText = input.value;
-      chatBody.appendChild(userDiv);
-      input.value = '';
-
-      // Resposta Bot
-      setTimeout(() => {
-        const botDiv = document.createElement('div');
-        botDiv.className = 'chat-msg bot';
-
-        if (text.includes('código') || text.includes('codigo')) {
-          botDiv.innerText = "Temos vários códigos ativos na seção de códigos logo acima! Clique em 'Copiar' e use no Roblox!";
-        } else if (text.includes('jogo') || text.includes('jogar')) {
-          botDiv.innerText = "Você pode clicar em Roblox, Poki ou CrazyGames na lista de jogos para se divertir direto!";
-        } else if (text.includes('roleta') || text.includes('ganhar')) {
-          botDiv.innerText = "Role a tela até a Roleta da Sorte e clique em 'Girar Roleta' para testar sua sorte hoje!";
+        if (progress < 1) {
+          requestAnimationFrame(animateSpin);
         } else {
-          botDiv.innerText = "Eu sou o robô do Rian Brother! Experimente girar a roleta ou pegar os códigos do Roblox!";
+          isSpinning = false;
+          spinBtn.disabled = false;
+          const wonPrize = prizes[prizeIndex];
+          handleWin(wonPrize);
         }
+      }
 
-        chatBody.appendChild(botDiv);
-        chatBody.scrollTop = chatBody.scrollHeight;
-      }, 500);
+      requestAnimationFrame(animateSpin);
     }
+
+    function handleWin(prize) {
+      playWinSound();
+
+      if (typeof confetti === 'function') {
+        confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } });
+      }
+
+      if (prize.name.includes('Giro Grátis')) {
+        availableSpins += 2;
+        spinsCountSpan.textContent = availableSpins;
+      }
+
+      prizeResultText.textContent = `${prize.icon} ${prize.name}`;
+      prizeModal.classList.add('open');
+    }
+
+    spinBtn.addEventListener('click', spinWheel);
+    centerSpinHub.addEventListener('click', spinWheel);
+    canvas.addEventListener('click', spinWheel);
+
+    claimPrizeBtn.addEventListener('click', () => {
+      playClickSound();
+      prizeModal.classList.remove('open');
+    });
+
+    prizeModal.addEventListener('click', (e) => {
+      if (e.target === prizeModal) prizeModal.classList.remove('open');
+    });
+
+    /* =======================================================
+       6. FILTRO DE JOGOS & PLATAFORMAS
+       ======================================================= */
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const gameCards = document.querySelectorAll('.game-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        playClickSound();
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+
+        gameCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category.includes(filter)) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    /* =======================================================
+       7. CHATBOT RYANBOT OFICIAL
+       ======================================================= */
+    const chatbotToggleBtn = document.getElementById('chatbotToggleBtn');
+    const chatbotWindow = document.getElementById('chatbotWindow');
+    const closeChatBtn = document.getElementById('closeChatBtn');
+    const openChatHeroBtn = document.getElementById('openChatHeroBtn');
+    const chatMessages = document.getElementById('chatMessages');
+    const chatInput = document.getElementById('chatInput');
+    const chatSendBtn = document.getElementById('chatSendBtn');
+
+    function toggleChat() {
+      playClickSound();
+      chatbotWindow.classList.toggle('open');
+      if (chatbotWindow.classList.contains('open')) chatInput.focus();
+    }
+
+    chatbotToggleBtn.addEventListener('click', toggleChat);
+    closeChatBtn.addEventListener('click', toggleChat);
+    openChatHeroBtn.addEventListener('click', toggleChat);
+
+    function addMessage(sender, text) {
+      const bubble = document.createElement('div');
+      bubble.classList.add('chat-bubble', sender);
+      bubble.innerHTML = text;
+      chatMessages.appendChild(bubble);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function processUserMessage(msg) {
+      if (!msg.trim()) return;
+      addMessage('user', msg);
+      chatInput.value = '';
+      playClickSound();
+
+      const typingBubble = document.createElement('div');
+      typingBubble.classList.add('chat-bubble', 'bot');
+      typingBubble.innerHTML = '<i class="fa-solid fa-ellipsis fa-fade"></i> RyanBot está digitando...';
+      chatMessages.appendChild(typingBubble);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+
+      setTimeout(() => {
+        chatMessages.removeChild(typingBubble);
+        const reply = getBotReply(msg);
+        addMessage('bot', reply);
+        playTickSound();
+      }, 600);
+    }
+
+    function getBotReply(rawInput) {
+      const text = rawInput.toLowerCase();
+
+      if (text.includes('xerife') || text.includes('mm2') || text.includes('arma')) {
+        return '🔫 No <strong>Murder Mystery 2 (MM2)</strong> você pode resgatar as armas de Xerife com os códigos <code>COMB4T2</code> e <code>PR1SM</code>! Role a página até a seção <strong>Códigos Roblox</strong> para copiar!';
+      }
+      if (text.includes('blox fruit') || text.includes('fruta')) {
+        return '🍎 Para o <strong>Blox Fruits</strong>, temos o código de reset de status <code>SUB2GAMERROBOT_RESET1</code> e de 2x XP <code>KITT_GAMING</code>! Todos disponíveis na nossa tabela de códigos!';
+      }
+      if (text.includes('codigo') || text.includes('roblox') || text.includes('resgatar') || text.includes('promo')) {
+        return '🎁 Você pode pegar todos os códigos de Roblox na seção <strong>Códigos Roblox</strong> do site e resgatar direto em <a href="https://www.roblox.com/redeem" target="_blank" style="color: var(--cyan); text-decoration: underline;">roblox.com/redeem</a>!';
+      }
+      if (text.includes('rede') || text.includes('youtube') || text.includes('tiktok') || text.includes('instagram') || text.includes('link')) {
+        return '🌐 Siga o Ryan Brother nas redes oficiais:<br>• <strong>YouTube:</strong> <a href="https://youtube.com/@ryanbrother6541?si=bmtUDBFLrtvTgqah" target="_blank" style="color: var(--cyan);">@ryanbrother6541</a><br>• <strong>TikTok:</strong> <a href="https://www.tiktok.com/@ryanbrothertube?_r=1&_t=ZS-98fYzIi9V0J" target="_blank" style="color: var(--magenta);">@ryanbrothertube</a><br>• <strong>Instagram:</strong> <a href="https://www.instagram.com/ryan_brotherbr?igsh=NzJsdGgxNXdlbGN4" target="_blank" style="color: var(--neon-gold);">@ryan_brotherbr</a><br>• <strong>Twitch:</strong> <a href="https://www.twitch.tv/ryanbrother" target="_blank" style="color: var(--purple);">/ryanbrother</a>';
+      }
+      if (text.includes('live') || text.includes('horario') || text.includes('quando')) {
+        return '🔴 As lives do <strong>Ryan Brother</strong> acontecem no YouTube e na Twitch quase todos os dias a partir das <strong>19h (Horário de Brasília)</strong>! Avisamos tudo no Instagram e no Discord!';
+      }
+      if (text.includes('roleta') || text.includes('premio') || text.includes('girar')) {
+        return '🎯 A nossa <strong>Roleta de Prêmios</strong> dá 3 giros diários para ganhar Brother Coins, armas no MM2 e passes VIP!';
+      }
+      if (text.includes('oi') || text.includes('ola') || text.includes('fala') || text.includes('salve')) {
+        return 'Salve, Brother! 👊 Tudo beleza? Quer códigos de Roblox, saber sobre as lives ou girar a roleta?';
+      }
+      return 'Boa pergunta, Brother! Você pode explorar nossa <strong>Central de Códigos Roblox</strong>, girar a <strong>Roleta</strong> ou conferir os vídeos no <strong>YouTube (@ryanbrother6541)</strong>!';
+    }
+
+    window.sendQuickMessage = function(msg) {
+      processUserMessage(msg);
+    };
+
+    chatSendBtn.addEventListener('click', () => processUserMessage(chatInput.value));
+    chatInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') processUserMessage(chatInput.value);
+    });
+
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.querySelector('.nav-links');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      playClickSound();
+      if (navLinks.style.display === 'flex') {
+        navLinks.style.display = 'none';
+      } else {
+        navLinks.style.display = 'flex';
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.position = 'absolute';
+        navLinks.style.top = '85px';
+        navLinks.style.left = '0';
+        navLinks.style.width = '100%';
+        navLinks.style.background = '#07080f';
+        navLinks.style.padding = '20px';
+        navLinks.style.borderBottom = '1px solid var(--border-color)';
+      }
+    });
   </script>
 </body>
 </html>
